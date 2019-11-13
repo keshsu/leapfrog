@@ -1,0 +1,141 @@
+Day 1: We have a pretty much orientation overall from the mentors and Hr Manager.
+
+And we have a git login session.
+> ssh key 
+> simple key-value data store
+
+HW1
+git branch
+- This command displays the actual branches existed in the git repositories. And if want to check or go to another branch we have to switch the branch with the command git checkout <branch name>. By default we are assigned as a master after creating a repository that we initialize with command git init. In tha case if you want to create a branch we mainly write the command git checkout -b <branch name>.
+
+git merge
+- it specially use to merge the request for the dfferent branches
+
+.gitignore
+-A gitignore file specifies intentionally untracked files that Git should ignore. Files already tracked by Git are not affected.
+
+git push
+-it is used to push the file into the git repositories
+
+git pull
+-it is used to pull the file from the git repositories
+
+
+
+
+repetition alignment proximity space balance contrast
+
+
+1. Good design is innovative
+2. good design makes a product useful
+3.
+4. good design is unotrusive
+5. good design makes a product understandable
+6. good design is honest
+7. good design is long lasting
+8. good desgn is through down to last details
+9.
+10. good design is little design as possible
+
+
+what did you see
+How it tastes like
+what it smells like
+
+
+
+travelling with lots of joy... instructive.... i tastes a sweetness in the musc... and smells a summer seasonal 
+
+strange things moving along and horrible and it have lots of things inside it secret
+
+wine slow dancing and smells a amazing falvor of romance tastes a crunchy
+
+
+
+Personna
+
+user1
+Name: Aakash
+type: single
+age: 25
+location for: kathmandu 
+rent for: flat 1bhk
+parking: yes
+garden: no
+profession: student
+
+user2
+Name: Preet
+type: married
+age: 30
+location for: lalitpur
+rent for: full House
+parking: yes
+garden: yes
+profession: employee
+
+user3
+Name: Geeta
+type: single
+age: 22
+location for: kathmandu
+rent for: flat 1bhk
+parking: yes
+garden: yes
+profession: employee
+
+user4
+Name: Bishal
+type: married
+age:  40
+location for: laitpur
+rent for: flat 2bhk
+parking: yes
+garden: yes
+Profession: employee
+
+user5
+Name: Ramesh
+type: married
+age: 50
+location for: kathmandu
+rent for: full house
+parking: yes
+garden: yes
+profession: Business man
+
+user6
+Name: Normani
+type: married
+age: 30
+location for: bhaktapur
+rent for: flat 1bhk
+parking: no
+garden: no
+profession: employee
+
+
+Day 2-13 Nov, 2019: 
+Wire framing / low - fi
+
++ contrasting..
++ majority on the use of the icons in side ta website eg. 16x16
+
+
+SEO designer h1-h3
+Web designer h1-h6
+
+
+Assignment 2:
+bbc.com
+
+
+
+"sectionn 508"
+
+w3c.org
+
+
+div is a block element
+span is a inline element
+
