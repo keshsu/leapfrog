@@ -1,0 +1,43 @@
+.main-container{
+    display:block;
+    /* width: 78.3333%; */
+    padding: 0 auto;
+    background:#94c3c8;
+}
+
+.head-container{
+    display:block;
+}
+.head-top-container{
+    display:block;
+    position:relative;
+    height:1.4519%;
+}
+.header-wrapper{
+    display: block;
+}
+.logo{
+    float:left;
+    padding-top: 20px;
+}
+.nav-bar{
+    float:right;
+    display:block;
+}
+.nav-menus{
+    position:relative;
+}
+.nav-menus ul li{
+    float:left;
+    padding: 35px 20px;
+}
+.search-icon{
+    background:url(../image/search.png) no-repeat fixed center;
+    background-color:#94c3c8;
+    width:3%;
+}
+.head-bottom-container{
+    display:block;
+    position:relative;
+    
+}
