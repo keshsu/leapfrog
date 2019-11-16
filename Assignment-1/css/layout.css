@@ -13,19 +13,21 @@
     float:left;
 }
 .header-top-right{
-	padding-top: 34px;
+	padding-top: 24px;
     float:right;
 }
 .nav-bar-menu-items{
     display:block;
     float: left;
+    position: relative;
 }
 .nav-bar-menu-items ul li{
-    margin: 0 20px;
+    padding: 10px 20px;
     float:left;
 }
 .search-icon{
     float: right;
+    padding-top:8px;
 }
 .header-bottom{
     display:block;
@@ -44,9 +46,11 @@
 }
 .main-container-wrapper{
     display: block;
+    background: url('../image/downarrow.png') no-repeat left top;
     padding: 0 150px;
-    background: #F3F3F3;
+    background-color: #F3F3F3;
     padding-bottom:200px;
+    padding-top:28px;
 }
 .main-content-desc{
     width: auto;
@@ -109,7 +113,17 @@
 .bottom-content ul li{
     float: left;
     text-align: center;
-    margin: 0 3px;
+    padding-left: 6px;
+    position:relative;
+    font-size:14px;
+    font-weight:bolder;
+    color:darkgray;
+}
+.bottom-content .li-num{
+    margin-right:-15px;
+    position: absolute;
+    left:40px;
+    bottom:20px;
 }
 .right-right-main-content{
     display: block;
@@ -118,14 +132,15 @@
     padding: 0 150px;
     display:block;
     background: url('../image/rulers-w.png') repeat-x left top;
+    background-size: 30px;
     background-color: #ECECEC;
-    background-size: 25px;
-    padding-top:10px;
+    padding-top:30px;
 }
 .our-team-content{
     display: block;
     background-color: #ececec;
     padding-top: 60px;
+    padding-bottom:250px;
 }
 .our-team-list-wrapper{
     position:relative;
@@ -144,9 +159,8 @@
     margin: 0 5px;
 }
 .client-container:hover{
-    background:#90d1cb;
+    background-color:#90d1cb;
 }
-.clients-container:hover .button-client ,
 .button-client:hover{
     background-image: url('../image/hoverframe.png');
     background-color: lightcoral;

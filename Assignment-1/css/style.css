@@ -1,6 +1,14 @@
 .nav-bar-menu-items a{
     color: #fff;
 }
+.nav-bar-menu-items ul li:hover{
+    background: url(../image/li-hover.png) no-repeat center;
+    background-size: cover;
+    background-color:#79a09d;
+}
+.down-nav{
+    padding-right: 4px;
+}
 .right-bar-items ul li{
     float: left;
 }
@@ -21,10 +29,8 @@
     text-align: center;
 }
 .li-num{
-    font-size: 25px;
-    font-weight: bolder;  
+    font-size: 25px; 
     color: darkgray; 
-    text-align: center;
 }
 .our-left-button, .our-right-button{
     background: url("../image/buttonborder.png");
