@@ -2,9 +2,10 @@
     display: block
 }
 .header-top{
+    background: url('../image/rulers.png') repeat-x left bottom;
     display: block;
     padding: 0 150px;
-    background: #77C8C2;
+    background-color: #77C8C2;
     padding-bottom:80px;
 }
 .header-top-left{
@@ -12,19 +13,21 @@
     float:left;
 }
 .header-top-right{
-	padding-top: 34px;
+	padding-top: 24px;
     float:right;
 }
 .nav-bar-menu-items{
     display:block;
     float: left;
+    position: relative;
 }
 .nav-bar-menu-items ul li{
-    margin: 0 20px;
+    padding: 10px 20px;
     float:left;
 }
 .search-icon{
     float: right;
+    padding-top:8px;
 }
 .header-bottom{
     display:block;
@@ -43,9 +46,11 @@
 }
 .main-container-wrapper{
     display: block;
+    background: url('../image/downarrow.png') no-repeat left top;
     padding: 0 150px;
-    background: #F3F3F3;
+    background-color: #F3F3F3;
     padding-bottom:200px;
+    padding-top:28px;
 }
 .main-content-desc{
     width: auto;
@@ -108,7 +113,17 @@
 .bottom-content ul li{
     float: left;
     text-align: center;
-    margin: 0 3px;
+    padding-left: 6px;
+    position:relative;
+    font-size:14px;
+    font-weight:bolder;
+    color:darkgray;
+}
+.bottom-content .li-num{
+    margin-right:-15px;
+    position: absolute;
+    left:40px;
+    bottom:20px;
 }
 .right-right-main-content{
     display: block;
@@ -116,47 +131,48 @@
 .our-team-container-wrapper{
     padding: 0 150px;
     display:block;
-    background: #ECECEC;
-    padding-bottom: 250px;
+    background: url('../image/rulers-w.png') repeat-x left top;
+    background-size: 30px;
+    background-color: #ECECEC;
+    padding-top:30px;
 }
 .our-team-content{
     display: block;
+    background-color: #ececec;
     padding-top: 60px;
+    padding-bottom:250px;
 }
 .our-team-list-wrapper{
-    background-color: #ececec;
-    padding: 0 150px;
     position:relative;
     display: block;
 }
 .client-container{    
-    background-image: url('../image/b.png');
-    background-repeat: no-repeat;
-    background-size:  cover;  
     position: relative;    
     float: left;
-    background-color: #fff;
-    height: 300px;
-    width: 275px;
+    background: url('../image/b.png');
+    background-repeat: no-repeat;
+    background-size:  cover;  
+    background-color: #f8f8f8;
+    padding-right: 250px;
+    padding-top: 250px;
     top: 40px;
     margin: 0 5px;
 }
 .client-container:hover{
     background-color:#90d1cb;
 }
-.clients-container:hover .button-client ,
 .button-client:hover{
     background-image: url('../image/hoverframe.png');
     background-color: lightcoral;
 }
 .image-container{
     display:block;
-    background:url('../image/border-user.png');
-    background-size: contain;
+    background:url('../image/image-icon.png');
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .button-client{
-    background-image: url('../image/border-user.png');
+    background: url('../image/border-user.png');
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
@@ -165,7 +181,7 @@
     height: 23px;
     bottom: -26.49px;
     left: 15%;
-    font-size:32px;
+    font-size:18px;
     font-weight: bolder;
     text-align:center;
     color:#F3F3F3;
@@ -208,7 +224,6 @@
 }
 .our-small-dot-container{
     display: block;
-    float:right;
     padding-top:10px;
     background: url('../image/vbar.png') repeat-x left bottom;
     background-size: 5px; 
@@ -222,12 +237,12 @@
 }
 .our-left-button{
     float: left;
-    padding:8px;
+    padding:3px 7px;
     margin-right:3px;
 }
 .our-right-button{
     float: right;
-    padding:8px;
+    padding:3px 8px;
 }
 .clients-container{
     display:block;
@@ -245,8 +260,10 @@
 }
 .footer-wrapper{
     display:block;
-    padding:30px 150px;
-    background:#77C8C2;
+    padding:60px 150px;
+    background: url('../image/rulers-w.png') repeat-x left top;
+    background-color:#77C8C2;
+    background-size: 25px;
     padding-bottom:300px;
 }
 .footer-left{
