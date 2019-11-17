@@ -1,5 +1,18 @@
+.header-top,
+.header-bottom,
+.main-content, 
+.col-3-main-wrapper, 
+.our-team-content, 
+.solution-container-header,
+.solution-container-desc,
+.our-happy-clients,
+.clients-container,
+.footer-bottom,
+.footer-items{
+    width:1170px;
+    margin: 0 auto;
+}
 .header-top-container{
-    display:block;
     background: url('../image/rulers.png') repeat-x left bottom;
     background-color: #77C8C2;
     padding-bottom:80px;
@@ -215,9 +228,6 @@
     padding-top: 20px;
     padding-bottom:120px;
     background: #F3F3F3;
-}
-.clients-container{
-    padding: 0 150px;
 }
 .clients-container div{
     float:left;
