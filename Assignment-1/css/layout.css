@@ -9,8 +9,8 @@
 .clients-container,
 .footer-bottom,
 .footer-items{
-    width:1170px;
     margin: 0 auto;
+    width:1170px;
 }
 .header-top-container{
     background: url('../image/rulers.png') repeat-x left bottom;
