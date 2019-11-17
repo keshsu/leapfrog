@@ -12,3 +12,7 @@ a{
 li{
     list-style: none;
 }
+.tiles{
+    width: 1170px;
+    margin: 0 auto;
+}
