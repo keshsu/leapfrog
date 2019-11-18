@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding:0;
+}
+html { font-size:100%; } 
+body{
+     /* font-family: 'Kaushan Script', cursive; */
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    background:#fff;
+}
+img { max-width: 100%; height: auto; }
+li{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+}
+/* IE 8 9 10 chrome latest FF latest */

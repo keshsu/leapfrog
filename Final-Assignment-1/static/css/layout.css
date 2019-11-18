@@ -1,0 +1,21 @@
+.page{
+    width: 75em;
+    margin: 0 auto;
+    overflow:auto;
+}
+.header-section{
+    display:block;
+    background-image: url(../images/ves.png) no-repeat center;
+    height:auto;
+    width: 100%;
+}
+.logo-container{
+    padding-top:1em;
+    float:left;
+}
+.header-section nav{
+    float:right;
+}
+.header-section nav ul li{
+    float:left;
+}
