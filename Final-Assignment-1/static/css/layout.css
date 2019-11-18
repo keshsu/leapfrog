@@ -1,7 +1,6 @@
 .page{
     width: 75em;
     margin: 0 auto;
-    overflow:auto;
 }
 .header-section{
     display:block;
@@ -18,4 +17,8 @@
 }
 .header-section nav ul li{
     float:left;
+}
+.logo-container a{
+    color:#fff;
+    font-size:bold;
 }
