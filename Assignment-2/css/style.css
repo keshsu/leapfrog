@@ -1,0 +1,21 @@
+.nav-bar-menu-items a{
+    color: #fff;
+}
+.nav-bar-menu-items ul li:hover{
+    background: url(../image/li-hover.png) no-repeat center;
+    background-size: cover;
+    background-color:#79a09d;
+}
+.down-nav{
+    padding-right: 0.1em;
+}
+.right-bar-items ul li{
+    float: left;
+}
+.right-bar-items ul li a{
+    margin: 0 0.2em;
+    cursor: text;
+}
+.search-bar{
+    display:none;
+}
