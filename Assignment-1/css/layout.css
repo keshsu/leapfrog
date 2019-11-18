@@ -1,28 +1,19 @@
 .header-top,
-.header-bottom,
-.main-content, 
-.col-3-main-wrapper, 
-.our-team-content, 
-.solution-container-header,
-.solution-container-desc,
-.our-happy-clients,
-.clients-container,
-.footer-bottom,
-.footer-items{
+.header-bottom
+{
     margin: 0 auto;
     width:1170px;
 }
+
 .header-top-container{
     background: url('../image/rulers.png') repeat-x left bottom;
     background-color: #77C8C2;
-    padding-bottom:80px;
+    padding-bottom:20px;
 }
 .header-top-left{
-	padding-top: 20px;
     float:left;
 }
 .header-top-right{
-	padding-top: 24px;
     float:right;
 }
 .nav-bar-menu-items{
@@ -306,4 +297,9 @@
 }
 .icons li{
     float:left;
+}
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  { 
+    overflow:hidden;
 }

@@ -101,7 +101,9 @@
     background-color: #cc5b51;
 }
 .multipage-container{
+    display:block;
     position:relative;
+    padding-bottom:20em;
 }
 .blog-page-slider-container{
     float:left;
@@ -179,7 +181,6 @@
     background:url(../image/img-icon.png) no-repeat center;
 }
 .main-list-techniques{
-    padding-top:20em;
     display:block;
     background:#F3F3F3;
     padding-bottom:30em;
@@ -331,7 +332,7 @@
 }
 .tab-view-wrapper{
     background:#f8f8f8;
-    width:46em;
+    width:auto;
     padding:1em;
     padding-bottom: 8em;
 }
@@ -345,7 +346,7 @@
 }
 .right-tab-menu{
     float:right;
-    width:16em;
+    width:25%;
     margin-left:1em;
 }
 .right-tab-menu-lists-wrapper{ 
@@ -604,4 +605,20 @@ td{
 }
 .icons li{
     float:left;
+}
+
+
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  { 
+    .project-slider-container{
+        padding-bottom:18em;
+    }
+    .multipage-container{
+        display:none;
+    }
+    .tab-view-wrapper{
+        width:78%;
+    }
 }

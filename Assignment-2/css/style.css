@@ -6,15 +6,21 @@
     background-size: cover;
     background-color:#79a09d;
 }
+.nav-bar-menu-items ul li:hover ~ hover-portfolio{
+    display:block;
+}
+.hover-portfolio{
+    display:none;
+}
 .down-nav{
     padding-right: 0.1em;
 }
 .right-bar-items ul li{
     float: left;
+    color: darkgrey;
 }
 .right-bar-items ul li a{
     margin: 0 0.2em;
-    cursor: text;
 }
 .search-bar{
     display:none;

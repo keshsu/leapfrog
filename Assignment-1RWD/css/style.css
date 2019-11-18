@@ -13,23 +13,23 @@
     float: left;
 }
 .right-bar-items ul li a{
-    margin: 0 5px;
+    margin: 0 0.3125em;
     cursor: text;
 }
 .main-content-header{
     color: #E2534B;
-    font-size: 35px;
-    line-height: 80px;
+    font-size: 2.1875em;
+    line-height: 2em;
     font-weight: bolder;
 }
 .our-team-header{
-    font-size: 30px;
+    font-size: 1.875em;
     font-weight: bolder;  
     color: darkgray; 
     text-align: center;
 }
 .li-num{
-    font-size: 25px; 
+    font-size: 1.5625em; 
     color: darkgray; 
 }
 .our-left-button, .our-right-button{
