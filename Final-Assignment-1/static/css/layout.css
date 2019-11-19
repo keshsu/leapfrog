@@ -96,15 +96,14 @@ header{
 }
 .about-us-image{
     display:inline-block;
-    width:76.875em;
     margin:0 auto;
     margin-top:90px;
 }
-.about-us-image:hover{
+/* .about-us-image:hover{
     display:block;
     margin:0 auto;
     margin-top:90px;
-}
+} */
 .image-list{
     background: #95e1d3;
     width:380px;
