@@ -39,6 +39,10 @@
     }
     .welcome-text-container{
         width:100%;
+        padding-top:45%;
+    }
+    .lines span{
+        padding-right:9.093%;
     }
     .welcome-text-container h1{
         font-size:40px;
