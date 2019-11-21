@@ -16,7 +16,7 @@
     font-weight: bolder;
     word-spacing: normal;
 }
-@media (min-width: 640px) { body {font-size:0.875rem;}
+@media (min-width: 768px) { body {font-size:0.875rem;}
     .header-container, .about-us-container, .facts-container,.services-container,
     .feature-container, .main-services-container, .quote-container, .our-team-container, .logos-container,
     .quote-container-s, .our-work-container, .our-happy-clients-container, .our-blog-container, .map-container, .footer-container{
@@ -51,18 +51,16 @@
         padding:10px;
     }
     .line-rectangle{
-        width:20%;
+        width:60%;
     }
     .about-us-image{
         width:100%;
         padding:10px;
     }
     .image-list{
-        display:block;
-        margin:0 auto;
-        padding:100% 0;
+        display:inline-block;
     }
-    .image-list, .services-list{
+    .services-list{
         display:block;
         margin:0 auto;
         width:100%;
