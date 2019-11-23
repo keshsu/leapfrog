@@ -16,77 +16,10 @@
     font-weight: bolder;
     word-spacing: normal;
 }
-@media (min-width: 768px) { 
+@media (min-width: 640px) { 
     body {
         font-size:0.875rem;
-    }
-    .header-container, .about-us-container, .facts-container,.services-container,
-    .feature-container, .main-services-container, .quote-container, .our-team-container, .logos-container,
-    .quote-container-s, .our-work-container, .our-happy-clients-container, .our-blog-container, .map-container, .footer-container{
-        width:100%; 
-    }
-    .header-content, .about-us-content, .facts-content,.services-content,
-    .feature-content, .main-services-content, .quote-content, .our-team-content, .logos-content,
-    .quote-content-s, .our-work-content, .our-happy-clients-content, .our-blog-content, .map-content, .footer-content{
-        width:100%; 
-    }
-    header{
-        width:100%;
-    }
-    nav{
-        width:100%;
-    }  
-    .creative-template-text{
-        font-size:20px;
-        width:100%;
-    }
-    .welcome-text-container{
-        width:100%;
-        padding-top:45%;
-    }
-    .lines span{
-        padding-right:9.093%;
-    }
-    .welcome-text-container h1{
-        font-size:40px;
-        line-height:80px;
-    }
-    .learn-more-button{
-        margin-bottom:30px;
-    }
-    .slider-container{
-        padding:10px;
-    }
-    .line-rectangle{
-        width:60%;
-    }
-    .about-us-image{
-        width:100%;
-        padding:10px;
-    }
-    .image-list{
-        display:inline-block;
-    }
-    .services-list{
-        display:block;
-        margin:0 auto;
-        width:100%;
-    }
-    .service-icon{
-        padding-left:30.0055%;
-    }
-    .service-content{   
-    padding-right:25.0055%;
-    }
-    .service-heading{
-    padding-bottom:3.8767%;
-    padding-left:27.876%;
-    }
-    .quote-container-s,
-        .quote-container{
-        display:none;
-    }
-        
+    } 
 } 
 @media (min-width:960px) { body {font-size:0.7rem;} } 
 @media (min-width:1100px) { body {font-size:0.875rem;} } 

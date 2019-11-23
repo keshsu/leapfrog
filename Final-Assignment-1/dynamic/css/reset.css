@@ -12,7 +12,8 @@ body{
 }
 img { 
     width: 100%; 
-    height: auto; }
+    height: auto; 
+}
 li{
     list-style:none;
 }
@@ -21,14 +22,15 @@ a{
     /* color:#000; */
 }
 .main-container{
-    width: 100%;
+    width:100%;
+    min-width:66.6667%;
 }
 .page{
     width: 62.5%;
     margin: 0 auto;
 }
 section{
-    margin-bottom:5em;
+    margin-bottom:80px;
 }
 .clearfix::after {
     content: "";
