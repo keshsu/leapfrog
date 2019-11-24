@@ -16,10 +16,131 @@
     font-weight: bolder;
     word-spacing: normal;
 }
-@media (min-width: 640px) { 
-    body {
-        font-size:0.875rem;
+@media (max-width:360px) {
+    .header-container,
+    .about-us-container,
+    .facts-container,
+    .services-container,
+    .feature-container,
+    .main-services-container,
+    .quote-container,
+    .our-team-container,
+    .logos-container,
+    .our-work-container,
+    .quote-container-s,
+    .our-happy-clients-container,
+    .our-blog-container,
+    .map-container,
+    .footer-container{
+        width:100%;
+    }
+    body {font-size:0.975rem;
     } 
+    .main-container{
+        width:100%;
+        min-width:22.5em;
+    }
+    .page{
+        width: 21.25em;
+        margin: 0 auto;
+    }
+    .header-container{
+        background-size:cover;
+    }
+    nav{
+        display:none;
+    }
+    .creative-template-text{
+        font-size: 21.6px;
+    }
+    .welcome-text-container{
+        padding-top:150px;
+    }
+    .welcome-text-container h1{
+        font-size:45px;
+        line-height:60px;
+    }
+    .slider-container{
+        display:none;
+    }
+    .about-us-image{
+        width:100%;
+    }
+    .image-list{
+        width:auto;
+    }
+    .numbers-list .numbers-dat{
+        width:100%;
+        padding:30px 10px;
+    }
+    .service-list{
+        width:auto;
+    }
+    .tab-img { 
+        top: 106%;
+    }
+    .mob-img {
+        top: 134%;
+    }
+    .right-service-content {
+        width:auto;
+    }
+    .quote-container, .quote-container-s{
+        display:none;
+    }
+    .o-image-list {
+        width:auto;
+        margin:20px;
+    }
+    .logo-items{
+        width:auto;
+    }
+    .social-links-ot a img{
+        left: 43%;
+        top: 20%;
+    }
+    .social-links-ot p{
+        width: 65%;
+        left:17%;
+    }
+    .our-work-left-container{
+        width:auto;
+    }
+    .our-work-right-container{
+        width:auto;
+    }
+    .user-image {
+        width: 20%;
+        margin: 0px;
+    }
+    .username-and-professsion {
+        width: 76.25%;
+        font-size: 10px;
+    }
+    .username-and-professsion h2{
+        font-size:16px;
+    }
+    .blog-list {
+        width: auto;
+    }
+    .map-container {
+        margin-top: 0px;
+    }
+    .about-us-file {
+        width: auto;
+        margin-bottom:20px;
+    }
+    .blogs-files {
+        width: auto;
+        padding-left:10px;
+    }
+    .instagram-file {
+        width: auto;
+    }
+    .insta-image-gallery {
+        padding: 20px 10px;
+    }
+
 } 
 @media (min-width:960px) { body {font-size:0.7rem;} } 
 @media (min-width:1100px) { body {font-size:0.875rem;} } 

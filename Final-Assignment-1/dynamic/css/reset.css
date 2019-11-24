@@ -23,10 +23,10 @@ a{
 }
 .main-container{
     width:100%;
-    min-width:66.6667%;
+    min-width:82.5em;
 }
 .page{
-    width: 62.5%;
+    width: 75em;
     margin: 0 auto;
 }
 section{

@@ -1,7 +1,6 @@
 .header-container{
     background: url(../images/ves.png) no-repeat center;
-    /* background: url(../images/ves.png) no-repeat;
-    background-size:cover; */
+    background-size:auto;
 }
 header{
     padding-top:28px;
@@ -34,12 +33,15 @@ header{
     text-align:center;
 }   
 .line-rectangle{
-    width:60px;
+    width:5%;
     height:3px;
     background:#fff;
     margin:0 auto;
     margin-top:20px;
     margin-bottom:50px;
+}
+.learn-more-button{
+    margin-bottom:60px; 
 }
 .learn-more-button a{
     border:2px solid white;
@@ -54,7 +56,6 @@ header{
 .slider-container{
     display:inline-block;
     margin:0 auto;
-    margin-top:50px;
 }
 .lines{
     float:left;
@@ -68,7 +69,6 @@ header{
     padding-right:3px;
 }
 .lines .line-rectangle-l{
-    width:210px;
     height:3px;
     background:#fff;
     display:block;
@@ -92,17 +92,16 @@ header{
 .about-us-image{
     display:inline-block;
     margin-top:90px;
-    width:1230px;
+}
+
+.image-list{
+    width:30.4000%;
+    margin:15px;
+    float:left;
 }
 .image-list-items{
     position:relative;
-}
-.image-list{
     background: #95e1d3;
-    width:380px;
-    height:250px;
-    margin:15px;
-    float:left;
 }
 .hover-image-a{
     position:absolute;
@@ -136,17 +135,19 @@ header{
 }
 .social-links-abt{
     position:absolute;
-    top:100px;
-    left:150px;
+    top: 35%;
+    left: 35%;
     z-index:40;
     display:none;
 }
+.social-links-abt p{
+    color:#fff;
+}   
 .facts-container{
-    margin-top:110px;
     background: #95e1d3;
 }
 .numbers-list .numbers-dat{
-    width:238px;
+    width:19.8333%;
     float:left;
     border-left: 1px solid lightgray;
     text-align:center;
@@ -187,17 +188,17 @@ header{
 }
 .service-list{
     float:left;
-    width:325px;
+    margin:25px;
+    width:28.5%;
 }
 .service-icon{
     width:32px;
     height:32px;
     float:left;
-    padding:top
 }
 .service-content{
-    margin:0 12px;
     float:right;
+    width:86%;
 }
 .service-heading{
     font-size:14px;
@@ -205,14 +206,15 @@ header{
     text-align:initial;
     font-weight:normal;
     text-transform:uppercase;
+    font-weight:bold;
+    font-family: 'Montserrat', sans-serif;
 }
 .service-content p{
     font-size:15px;
-    width:265px;
     text-align: initial;
 }
 .services-line-l{
-    width:1200px;
+    width:100%;
     background:lightgray;
     height:1px;
 }
@@ -220,7 +222,7 @@ header{
     background:url(../images/feature.png) no-repeat;
     background-size:cover; 
     text-align:center;
-    padding-bottom:600px;
+    padding-bottom:34%;
 }
 .feature-content{
     padding-top:110px;
@@ -233,20 +235,18 @@ header{
 .feature-content span{
     font-size: 24px;
 }
-
 .tab-img{
     position:absolute;
     z-index:10;
-    width:477px;
-    left:340px;
-    top:270px;
+    width:39.75%;
+    left:22.5%;
 }
 .mob-img{
     position:absolute;
     z-index:20;
-    width:211px;
-    left:725px;
-    top:465px;
+    width:17.5833%;
+    left: 55%;
+    top: 213%;
 }
 .main-services-container{
     text-align:center;
@@ -268,42 +268,39 @@ header{
 }
 .right-service-content{
     float: right;
+    width:45%;
 }
-.right-service-content li{
+.right-service-content ul li{
     margin-bottom:10px;
-    width:600px;
 }
 .right-service-content li a{
-    height:58px;
     border:1px solid lightgray;
     text-align:initial;
     color:#000;
     display:block;
 }
 .right-service-content li a .serv-img-icon-l{
-    width:38px;
-    height:38px;
+    width:22px;
+    height:22px;
     float:left;
-    padding-top:13px;
+    padding-top:8px;
     padding-left:15px;
 }
-.right-service-content li a h5{
-    float:left;
-    font-size:14px;
+.right-service-content li a h2{
     text-transform:uppercase;
-    line-height: 25px;
-    padding:16px;
+    font-size:16px;
+    padding:10px;
+    float:left;
 }
 .right-service-content .serv-img-icon-r{
     width:22px;
     height:12px;
+    padding-top:15px;
+    padding-right:15px;
     float:right;
-    padding-top:22px;
-    padding-right:20px;
 }
 .list-content{
     padding:20px;
-    height:178px;
     border-left: 1px solid lightgray;
     border-right: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
@@ -314,7 +311,7 @@ header{
     text-align:initial;
     font-size:15px;
     font-style:italic;
-    line-height:24px;
+    line-height:22px;
 }
 .hidden-content{
     display:none;
@@ -322,14 +319,13 @@ header{
 .quote-container{
     text-align:initial;
     background:#F8F8F8;
-    padding-bottom: 290px;
 }
 .quote-content{
     display:block;
 }
 .move-prev , .move-next{
     width:12px;
-    height:22px;
+    height:12px;
     padding:133px 0;
 }
 .move-prev{
@@ -342,17 +338,16 @@ header{
     display:block;
     padding: 70px 22px;  
     float:left;
+    width:91.6667%;
 }
 .quote-icon{
-    width:150px;
-    height:150px;
+    width:12.5%;
     float:left;
-    padding:0 52px;
+    padding:10px 52px;
 }
 .quote-message p{
     color:gray;
     padding:10px;
-    width:1100px;
     font-size:24px;
     line-height:36px;
     font-style:italic;
@@ -385,18 +380,16 @@ header{
     color:gray;
 }
 .our-team-image{
-    width: 1260px;
     display:inline-block;
     margin-top:90px;
 }
 .o-image-list-items{
+    background: #95e1d3;
     position:relative;
 }
 .o-image-list{
-    background: #95e1d3;
-    width:380px;
-    height:470px;
-    margin-right:30px;
+    width:31.6667%;
+    margin-right:17px;
     float:left;
 }
 .image-for-d{
@@ -425,8 +418,8 @@ header{
 }
 .social-links{
     position:absolute;
-    top:205px;
-    left:80px;
+    top: 40%;
+    left: 15%;
     z-index:40;
     display:none;
 }
@@ -457,7 +450,7 @@ header{
     float:left;
     width:130px;
     height:130px;
-    margin:34px;
+    margin:22px;
 }
 .our-work-container{
     text-align:center;
@@ -479,27 +472,26 @@ header{
 .image-container{
     margin: 0 auto;
 }
-.left-container{
-    width:670px;
+.our-work-left-container{
+    width:50%;
     float:left;
 }
-.right-container{
-    width:670px;
+.our-work-right-container{
+    width:50%;
+    float:right;
+}
+.wo-image-list{
+    width:50%;
     float:left;
 }
 .wo-image-list-items{
-    background: #95e1d3;
-    width:335px;
-    height:260px;
-    float:left;
     position:relative;
 }
 .wo-image-list-items-v{
     position:relative;
 }
-.wo-image-list-items-v img{
-    width:335px;
-    height:532px;
+.our-work-right-container .v{
+    width:50%;
     float:left;
 }
 .hover-image{
@@ -509,6 +501,7 @@ header{
     top:0;  
     z-index:10;
 }
+
 .init-image{
     position:relative;
     z-index:20;
@@ -523,37 +516,44 @@ header{
     .wo-image-list-items-v:hover .hover-image{
     display:block;
 }
-.wo-image-list-items:hover .social-links-ot ul li p,
-    .wo-image-list-items-v:hover .social-links-ot ul li p{
+.wo-image-list-items:hover .social-links-ot p,
+    .wo-image-list-items-v:hover .social-links-ot p{
     display:block;
 }
-.wo-image-list-items:hover .social-links-ot ul li a img,
-    .wo-image-list-items-v:hover .social-links-ot ul li a img{
+.wo-image-list-items:hover .social-links-ot a img,
+    .wo-image-list-items-v:hover .social-links-ot a img{
     display:block;
 }
-.social-links-ot ul li a img{
+.social-links-ot a img{
     width:30px;
     height:30px;
     display:none;
 }
-.social-links-ot ul li, .social-links-ot ul li p{
+.social-links-ot, .social-links-ot p{
     color:#fff;
+    font-size:10px;
 }
-.social-links-ot ul li a img{
+.social-links-ot a img{
     position:absolute;
-    top:80px;
-    left:150px;
+    top: 30%;
+    left: 45%;
     z-index:40;
     text-align:center;
 }
-.social-links-ot ul li p{
-    width:120px;
-    position:absolute;
-    top:120px;
-    left:100px;
+.social-links-ot p{
+    width: 25%;
+    position: absolute;
+    top: 45%;
+    left: 37%;
     z-index:40;
     text-align:center;
     display:none;
+}
+.wo-image-list-items-v .social-links-ot a img{
+    top:220px;
+}
+.wo-image-list-items-v .social-links-ot p{
+    top:250px;
 }
 .quote-container-s{
     text-align: initial;
@@ -562,29 +562,30 @@ header{
     text-align:center;
     background:url(../images/happy-clients.png) no-repeat center;
     background-size:cover;
-    height:730px;
 }
 .our-happy-clients-content{
-    padding-top:100px;
+    padding:100px 0;
 }
 .client-line{
     float:left;
 }
 .client-content-details{
-    width:600px;
+    width:50%;
     float:left;
+    margin-bottom:30px;
 }
 .user-image{
     float:left;
-    margin:40px;
+    margin:30px;
 }
 .username-and-professsion{
-    width:375px;
+    width:63.25%;
     float:right;
     text-align:initial;
 }
 .our-client-work-line{
     margin:20px 0;
+    width:20%;
 }
 .our-blog-container{
     display:block;
@@ -594,11 +595,10 @@ header{
     display:block;
 }
 .blog-list{
-    width:370px;
-    height:240px;
+    width:30.8333%;
     text-align:initial;
     float:left;
-    margin:15px;
+    margin:13px;
     position:relative;
 }
 .blog-list h1{
@@ -611,7 +611,7 @@ header{
     color:gray;
 }
 .our-blog-line-separator{
-    width:380px;
+    width: 98.6667%;
     height:1px;
     background:lightgray;
     margin:10px 0;
@@ -633,8 +633,8 @@ header{
     width:60px;
     height:60px;
     background:#95E1D3;
-    bottom:10px;
-    left:-10px;
+    top: 40%;
+    left: -4%;
     z-index:20;
     text-align:center;
 }
@@ -656,7 +656,7 @@ header{
     margin-bottom:0;
 }
 .map-content{
-    padding:50px;
+    padding:50px 0;
     text-align:center;
 }
 .map-content .pin-image{
@@ -679,7 +679,7 @@ header{
     padding-top:60px;
 }
 .about-us-file{
-    width:480px;
+    width:40%;
     float:left;
 }
 .logo-view a{
@@ -714,13 +714,13 @@ header{
 }
 .newsletter input[type=text]{
     height:30px;
-    width:230px;
+    width:49.1667%;
     padding:0 10px;
     font-style:italic;
 }
 .newsletter input[type=submit]{
     height:35px;
-    width:150px;
+    width:32.5%;
     text-transform:uppercase;
     background:#95E1D3;
     color:#fff;
@@ -730,7 +730,7 @@ header{
 }
 .blogs-files{
     float:left;
-    width:380px;
+    width:31.6667%;
     margin-bottom:10px;
     padding-left:30px;
 }
@@ -741,14 +741,14 @@ header{
     padding:40px 0;
 }
 .blog-img{
-    width:120px;
+    width:35%;
     height:80px;
     float:left;
     margin-right:20px;
 }
 .right-blog-title{
     float:left;
-    width:200px;
+    width:56.6667%;
 }
 
 .blogs-file li .date-post, .viewmore-post{
@@ -756,7 +756,7 @@ header{
     color:#F5F5F5;
 }
 .instagram-file{
-    width:275px;
+    width:25.4000%;
     float:left;  
 }
 .insta-image-gallery{
@@ -772,7 +772,7 @@ header{
 }
 .our-blog-line-separator-y{
     height:1px;
-    width:1200px;
+    width:100%;
     background:gray;
 }
 .copyright-content{
