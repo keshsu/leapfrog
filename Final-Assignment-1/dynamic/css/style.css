@@ -16,7 +16,7 @@
     font-weight: bolder;
     word-spacing: normal;
 }
-@media (max-width:414px) {
+@media (max-width:360px) {
     .header-container,
     .about-us-container,
     .facts-container,
@@ -75,6 +75,9 @@
     }
     .service-list{
         width:auto;
+    }
+    .feature-container{
+        padding-bottom:34%;
     }
     .tab-img { 
         top: 106%;
@@ -144,7 +147,7 @@
     }
 
 } 
-@media (max-width:768px) {
+@media only screen and (max-width:768px) and (min-width: 360px){
      body {font-size:0.7rem;
     }
     .header-container,
@@ -205,6 +208,9 @@
     }
     .service-list{
         width:auto;
+    }
+    .feature-container{
+        padding-bottom:34%;
     }
     .tab-img { 
         top: 126%;
