@@ -1,0 +1,10 @@
+.circle{
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+    background: blue;
+    position: absolute;
+}
+#gcanvas{
+    border:1px solid black;
+}
