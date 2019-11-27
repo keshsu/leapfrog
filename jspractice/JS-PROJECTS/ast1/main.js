@@ -47,6 +47,8 @@ function slideImage(){
     currentPos= left+ index * img_width;
     console.log(currentPos);
     slider_content.style.left=-currentPos+'px';
+    slider_content.style.transition = "left 2.5s ease-in-out";
+
     index++;    
 
     if(currentPos == total_wid- img_width){
@@ -61,26 +63,21 @@ setInterval(function(){
 
 
 function changeimage(direction){
-    if(direction>0){
-        currentPos = currentPos + direction * img_width;
-        slider_content.style.left = -currentPos + 'px';
-        direction++;
-        console.log(currentPos);
+    currentPos = currentPos + direction * img_width;
+        
+        
+    if(currentPos<0){
+        currentPos= total_wid - img_width;
+        adder =currentPos;
 
-        if(currentPos >= total_wid - img_width){
-            currentPos = -380;
-        }
+        console.log("current position starts:",currentPos);
     }
-    else{
-        currentPos = total_wid - index*img_width;
-        console.log("current position is: ", currentPos);
-        slider_content.style.left=-currentPos+'px';
-        index++;
-        if(currentPos<=0){
-            index = 1;
-        }
-        currentPos =0;
-        }
+    else if(currentPos >= total_wid){
+        currentPos= 0;
+    }
+    
+    slider_content.style.left = -currentPos + 'px';
+    
 
 }
 
