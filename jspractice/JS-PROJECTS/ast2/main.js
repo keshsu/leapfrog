@@ -1,6 +1,6 @@
 var index=1;
 
-var time = 2000;
+var time = 4000;
 
 var mainCarousalcontainer= document.querySelector('.main-carousal-container');
 var slider_content = document.getElementById('image-slider-wrapper');
@@ -30,7 +30,7 @@ function mainCarousal(){
 
     this.mainCarousalS= function(){ 
         mainCarousalcontainer.style.position = "relative";
-        mainCarousalcontainer.style.overflow = "auto";
+        mainCarousalcontainer.style.overflow = "hidden";
         slider_content.style.position = "absolute";
         slider_content.style.fontSize = "0";
         slider_content.style.width = total_wid+"px";
@@ -38,17 +38,17 @@ function mainCarousal(){
     // this.
 
     this.getLeftButton= function(){
-            this.element= document.createElement("button");
-            this.element.setAttribute("onclick","changeImage(-1)");
-            this.element.setAttribute("class","prevBtn");
-            mainCarousalcontainer.appendChild(this.element);
-            this.element.style.position="absolute";
-            this.element.style.top="40%";
-            this.element.style.background="red";
-            this.element.style.height="30px";
-            this.element.style.width="30px";
-            this.element.style.border="none";
-            this.element.style.cursor="pointer";    
+        this.element= document.createElement("button");
+        this.element.setAttribute("onclick","changeImage(-1)");
+        this.element.setAttribute("class","prevBtn");
+        mainCarousalcontainer.appendChild(this.element);
+        this.element.style.position="absolute";
+        this.element.style.top="40%";
+        this.element.style.background="red";
+        this.element.style.height="30px";
+        this.element.style.width="30px";
+        this.element.style.border="none";
+        this.element.style.cursor="pointer";    
     
     }
     this.getRightButton= function(){
@@ -69,60 +69,122 @@ function mainCarousal(){
 
     this.draw = function(){
         this.dots= [];
-
+        this.dot;
         this.element = document.createElement("div");
         this.element.setAttribute("id","dots-container");
         mainCarousalcontainer.appendChild(this.element);
 
-        // this.dotscontainer = document.querySelector('.dots-container');
+        dotscontainer = document.querySelector('#dots-container');
+        dotscontainer.style.textAlign= "center";
 
-        // console.log("dots contianer initialized", dotscontainer);
+        console.log("dots contianer initialized", dotscontainer);
 
-        // for(var i=0; i<len;i++){
-        //     var dot = document.createElement("span");
-        //     dot.classList.add("dots");
-        //     dotscontainer.append(dot);
-        //     dots.push(dot);
-        // }
+        for(var i=0; i<len;i++){
+            this.dot = document.createElement("span");
+            this.dot.classList.add("dots");
+            this.dot.style.position="absolute";
+            this.dot.style.background="lightgray";
+            // this.dot.style.display="inline-block";
+            this.dot.style.float = "left";
+            this.dot.style.width="20px";
+            this.dot.style.height="20px";   
+            this.dot.style.borderRadius="50%";
+            this.dot.style.margin="5px";
+            this.dot.style.bottom="10px";
+            dotscontainer.append(this.dot);
+            this.dots.push(this.dot);
+        }
 
-        // dots[index].classList.add("active");
+        this.dots[index-1].classList.add("active");
+    }
 
-        // nextImage(index,len,dots,images);
+
+
+    this.transitionSpeed =function(speed){
+        this.speed = speed;
+
+        
+        return this.speed;
     }
 }
 
 function changeImage(direction){
 
-        this.adder=0;
-        slider_content.style.left = " 2.5s ease-in-out";
-        
-        
         this.currentPos = this.currentPos + direction * img_width;
         
         
         if(this.currentPos<0){
             this.currentPos= total_wid - img_width;
-            this.adder =this.currentPos;
 
             console.log("current position starts:",currentPos);
         }
         else if(this.currentPos >= total_wid){
             this.currentPos= 0;
         }
-        
+    
+        this.stylefor ="ease-in-out";
+        slider_content.style.transition = 'left ' + time / 1000 + 's ' + this.stylefor;
         slider_content.style.left = -this.currentPos + 'px';
         
         // console.log("currentposition is:",currentPos);
         console.log("current pos is", this.currentPos);
+
+
+        
+        // slider_content.setAttribute("class",'isAnimating');
+        // setTimeout(function () {
+        //     slider_content.style.transition = '';
+        //     slider_content.removeAttribute("class",'isAnimating');
+        // },time);
 }
 
+slider_content.setAttribute("class",'isAnimating');
+setTimeout(function () {
+    slider_content.style.transition = '';
+    slider_content.removeAttribute("class",'isAnimating');
+},time);
 
-function autoslideimage(){
+setInterval(function(clicked) {
+    this.clicked = clicked;
+    // if(this.clicked == false){
+        autoslideimage(index, left);   
+    // }
+}, time);
 
+function autoslideimage(index, left){
+    this.index = index;
+    this.left=left;
+    this.stylefor ="ease-in-out";
+    
+    
+    
+    console.log("index",this.index);
+    
+    this.currentPos = this.left + this.index * img_width;
+    
+    console.log("imge width:",img_width);
+    console.log("total width:",total_wid);
+    
+    
+    if(this.currentPos >=total_wid-img_width){
+        this.index= -1;
+    }
+    
+    slider_content.style.left = -this.currentPos + 'px';
+    
+    console.log("current pos is", this.currentPos);
+    
+    
+    
+    slider_content.style.transition = 'left ' + time / 1000 + 's ' + this.stylefor;
+    this.index++;
 }
+// autoslideimage();
+
 var mainCar= new mainCarousal();
 mainCar.mainCarousalS();
 mainCar.imageCount();
 mainCar.getRightButton();
 mainCar.getLeftButton();
 mainCar.draw();
+

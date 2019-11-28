@@ -29,7 +29,7 @@ function init(x,y){
     
     container.style.position= "relative";
     container.style.overflow= "hidden";
-    container.style.margin = 0+'px auto';
+    container.style.margin = 20+'px auto';
     
     
     
@@ -68,7 +68,6 @@ function changeimage(direction){
         
     if(currentPos<0){
         currentPos= total_wid - img_width;
-        adder =currentPos;
 
         console.log("current position starts:",currentPos);
     }

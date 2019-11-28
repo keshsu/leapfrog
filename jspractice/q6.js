@@ -15,7 +15,9 @@ var input = {
     }
   };
 
- 
+ function childrencount(mainobj){
+    
+ }
 
   // // To this
   // var output = {
