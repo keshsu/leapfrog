@@ -27,6 +27,7 @@ function mainCarousal(){
         
         return this.totalimages;
     }
+    //drawing main container
 
     this.mainCarousalS= function(){ 
         mainCarousalcontainer.style.position = "relative";
@@ -35,11 +36,11 @@ function mainCarousal(){
         slider_content.style.fontSize = "0";
         slider_content.style.width = total_wid+"px";
     }
-    // this.
+    // drawing the buttons
 
     this.getLeftButton= function(){
         this.element= document.createElement("button");
-        this.element.setAttribute("onclick","changeImage(-1)");
+        this.element.setAttribute("onclick","mainCar.changeImage(-1)");
         this.element.setAttribute("class","prevBtn");
         mainCarousalcontainer.appendChild(this.element);
         this.element.style.position="absolute";
@@ -53,7 +54,7 @@ function mainCarousal(){
     }
     this.getRightButton= function(){
         this.element= document.createElement("button");
-        this.element.setAttribute("onclick","changeImage(1)");
+        this.element.setAttribute("onclick","mainCar.changeImage(1)");
         this.element.setAttribute("class","nextBtn");
         mainCarousalcontainer.appendChild(this.element);
         this.element.style.position="absolute";
@@ -65,9 +66,11 @@ function mainCarousal(){
         this.element.style.border="none";
         this.element.style.cursor="pointer";    
 
-}
+    }
+    //drawing the dots
 
     this.draw = function(){
+
         this.dots= [];
         this.dot;
         this.element = document.createElement("div");
@@ -76,21 +79,24 @@ function mainCarousal(){
 
         dotscontainer = document.querySelector('#dots-container');
         dotscontainer.style.textAlign= "center";
-
+        dotscontainer.style.width= "100%";
+        dotscontainer.style.height= "20px";
+        dotscontainer.style.position="absolute";
+        dotscontainer.style.bottom="10px";
+        
         console.log("dots contianer initialized", dotscontainer);
 
         for(var i=0; i<len;i++){
             this.dot = document.createElement("span");
             this.dot.classList.add("dots");
-            this.dot.style.position="absolute";
             this.dot.style.background="lightgray";
-            // this.dot.style.display="inline-block";
-            this.dot.style.float = "left";
+            this.dot.style.display="inline-block";
+            // this.dot.style.float = "left";
             this.dot.style.width="20px";
             this.dot.style.height="20px";   
             this.dot.style.borderRadius="50%";
             this.dot.style.margin="5px";
-            this.dot.style.bottom="10px";
+            this.dot.style.cursor="pointer";
             dotscontainer.append(this.dot);
             this.dots.push(this.dot);
         }
@@ -98,17 +104,8 @@ function mainCarousal(){
         this.dots[index-1].classList.add("active");
     }
 
-
-
-    this.transitionSpeed =function(speed){
-        this.speed = speed;
-
-        
-        return this.speed;
-    }
-}
-
-function changeImage(direction){
+    this.changeImage = function(direction){
+var currentPos = 0;
 
         this.currentPos = this.currentPos + direction * img_width;
         
@@ -127,29 +124,33 @@ function changeImage(direction){
         slider_content.style.left = -this.currentPos + 'px';
         
         // console.log("currentposition is:",currentPos);
-        console.log("current pos is", this.currentPos);
+        console.log("current pos is starting", this.currentPos);
 
-
+        // dots.setAttribute()
         
         // slider_content.setAttribute("class",'isAnimating');
         // setTimeout(function () {
         //     slider_content.style.transition = '';
         //     slider_content.removeAttribute("class",'isAnimating');
         // },time);
+    }
 }
 
-slider_content.setAttribute("class",'isAnimating');
-setTimeout(function () {
-    slider_content.style.transition = '';
-    slider_content.removeAttribute("class",'isAnimating');
-},time);
+function timeout(){
+    slider_content.setAttribute("class",'isAnimating');
+    setTimeout(function () {
+        slider_content.style.transition = '';
+        slider_content.removeAttribute("class",'isAnimating');
+    },time);
 
-setInterval(function(clicked) {
+
+    this.cleari = setInterval(function(clicked) {
     this.clicked = clicked;
     // if(this.clicked == false){
         autoslideimage(index, left);   
     // }
 }, time);
+}
 
 function autoslideimage(index, left){
     this.index = index;
@@ -161,6 +162,10 @@ function autoslideimage(index, left){
     console.log("index",this.index);
     
     this.currentPos = this.left + this.index * img_width;
+
+    clearInterval(cleari);
+    timeout();
+
     
     console.log("imge width:",img_width);
     console.log("total width:",total_wid);
@@ -180,11 +185,11 @@ function autoslideimage(index, left){
     this.index++;
 }
 // autoslideimage();
-
+var direction;
 var mainCar= new mainCarousal();
 mainCar.mainCarousalS();
 mainCar.imageCount();
 mainCar.getRightButton();
 mainCar.getLeftButton();
 mainCar.draw();
-
+mainCar.changeImage(direction);

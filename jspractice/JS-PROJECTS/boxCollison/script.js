@@ -1,7 +1,7 @@
 multiple = [];
 function Container(mainparent){
-    this.width = 30;
-    this.height = 30;
+    this.width = 20;
+    this.height = 20;
     this.x= 20;
     this.y = 20;
     this.directionX =1;
@@ -67,61 +67,26 @@ function Container(mainparent){
     var checklen = multiple.length;
     console.log(checklen);
 
-    this.checkCollision = function(boxes){
-       
+    this.checkCollision = function(boxes, current, index){
         this.boxes = boxes;
-        for(var i=0; i< this.boxes.length; i++) {
+        this.current = current;
 
-        
-        this.current = this.boxes[i];
-        this.rest = this.boxes.slice(i + 1);
-        
-        // console.log(this.rest);
-        this.count  = this.rest.length;
-        for (var p= 0; p<this.count;p++) {
-            if (this.current.x < this.rest[p].x + this.width &&
-                this.current.x + this.width > this.rest[p].x &&
-                this.current.y < this.rest[p].y + this.height &&
-                this.current.y + this.height > this.rest[p].y) {
-                
-                // console.log("directionY",this.rest.directionY);  
-                // console.log("directionX",this.rest.directionX);  4
+        for(var i=0; i< boxes.length; i++) {
 
-                console.log("moving");
-                if(this.rest[p].directionX == 1 && this.rest[p].directionY == -1){
-                    this.rest[p].directionY= 1;
-                    
-                }else if( this.rest[p].directionX == 1&&this.rest[p].directionY == 1){
-                    this.rest[p].directionX= -1;
-                }
-                if(this.current.directionX == -1 && this.current.directionY == -1){
-                    this.current.directionY= 1;
-                    
-                }else if( this.current.directionX == -1 && this.current.directionY == 1){
-                    this.current.directionY= -1;
-                }
+        if( i != index){
+            if (this.current.x < this.boxes[i].x + this.width &&
+                this.current.x + this.width > this.boxes[i].x &&
+                this.current.y < this.boxes[i].y + this.height &&
+                this.current.y + this.height > this.boxes[i].y) {
 
-
-                 if( this.rest[p].directionX ==1 && this.current.directionY ==-1){
-                    this.current.directionY= 1;
-                    this.current.directionX= -1;
-                    this.rest[p].directionX = 1;
-                    this.rest[p].directionY= -1;
+                console.log("collide");
+                this.directionY *= -1;
+                this.directionX *= -1;
                 }
-                else if( this.rest[p].directionX == -1 && this.current.directionY ==-1){
-                    this.current.directionY= 1;
-                    this.current.directionX= -1;
-                    this.rest[p].directionX = 1;
-                    this.rest[p].directionY= -1;
-                }
-                else if( this.rest[p].directionX == -1 &&this.rest[p].directionY == -1 && this.current.directionY ==-1 && this.current.directionX==-1){
-                    this.rest[p].directionX = 1;
-                    this.rest[p].directionY= 1;
-                }
-                this.current = this.rest;   
             }
+
         }  
-    }
+    
     }
 }
 
@@ -152,7 +117,7 @@ function Game(mainparent, totalboxes){
         }
         // console.log(00);
         
-        setInterval(this.moveBoxes.bind(this), 40);
+        setInterval(this.moveBoxes.bind(this), 30);
         
         // box.checkCollision(); 
     }
@@ -188,7 +153,7 @@ function Game(mainparent, totalboxes){
                 boxes[i].directionY = 1;
             }
             
-            boxes[i].checkCollision(boxes);
+            boxes[i].checkCollision(boxes, boxes[i], i);
         }
     }
 }
