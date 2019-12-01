@@ -6,16 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        .main_container{
+            width:600px;
+            height: 600px;
+            border: 1px solid black;
+            margin:0 auto;
+            position: relative;
+        }
         #gameContainer{
             width:300px;
             height:600px;
-            margin:0 auto;
-            position: relative;
+            float: left;
+            position: absolute;
+        }
+        #gameScore{
+            float: right;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
         }
     </style>
 </head>
 <body>
-    <div id="gameContainer"></div>
+    <div class="main_container clearfix">
+        <div id="gameContainer"></div>
+        <div id="gameScore">
+            <h2 id="player-name">Player</h2>
+            <h3 id="player-score"></h3>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
