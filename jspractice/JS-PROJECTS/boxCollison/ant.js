@@ -9,7 +9,7 @@ function Container(mainparent){
 
     this.element= null;
     this.mainContainer= mainparent;
-    this.mainContainer.onClick= "smash()";
+    // this.mainContainer.onClick= "smash()";
 
     this.container_wid = document.getElementById('game-container').offsetWidth;
     this.container_heigh = document.getElementById('game-container').offsetHeight;
@@ -25,7 +25,9 @@ function Container(mainparent){
         box.style.position = "absolute";
         box.style.background = "url(ant.gif)";
         box.style.backgroundSize = "cover";
+        box.style.cursor = "pointer";
         box.classList.add('box');
+        box.setAttribute( "onClick", "killant()");
         this.mainContainer.appendChild(box);
         this.element = box;  
 
@@ -48,17 +50,20 @@ function Container(mainparent){
 
         this.drawElement();
     }
-    this.smash = function(boxe, currentant){
-        var x = event.clientX;     // Get the horizontal coordinate
-        var y = event.clientY;     // Get the vertical coordinate
-        var coor = "X coords: " + x + ", Y coords: " + y;
-    }
 
     //drawing the element 
     this.drawElement= function(){
         this.element.style.left = this.x+'px';
         this.element.style.top = this.y+'px';
     }
+    this.killant =function(){
+        console.log("kill");
+        console.log("element");
+        // for(var k = 0; k<this.;k++){
+    
+            // this.element.style.display = "none";
+        // }
+    }   
 
     this.findPositon = function(first, second){
         var single=[];

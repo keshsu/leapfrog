@@ -145,7 +145,7 @@ function timeout(){
 
 
     this.cleari = setInterval(function(clicked) {
-    this.clicked = clicked;
+        this.clicked = clicked;
     // if(this.clicked == false){
         autoslideimage(index, left);   
     // }
