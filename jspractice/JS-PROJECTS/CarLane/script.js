@@ -10,6 +10,7 @@ function Container(mainC){
 
     this.containerWid = mainC.offsetWidth;
     this.containerHig = mainC.offsetHeight;
+    this.incX= 10;
     // mainC.style.background = "url(images/road.gif) center";
     // mainC.style.background = "url(images/roadslow.gif) center";
     mainC.style.background = "url(images/road.png) center";
@@ -69,9 +70,9 @@ function EnemyCar(mainC){
 
     this.trackSpace = (mainC.offsetWidth/3 - this.width)/2;
     this.x = 0 + this.trackSpace;
-    this.y = 0;
+    this.y = -100;
     this.mainC=mainC;
-    
+    this.multicars =["url(images/car.png)", "url(images/green.png)", "url(images/yellow.png)", "url(images/blue.png)"];
 
     this.initEnemyCar= function(){
       //  console.log("am i even here");
@@ -81,7 +82,7 @@ function EnemyCar(mainC){
         enemycar.style.width = this.width +'px';
         enemycar.style.position="absolute";
         
-        enemycar.style.background = "url(images/car.png)";
+        enemycar.style.background = this.multicars[Math.floor(Math.random()*5)];
         enemycar.style.backgroundSize = "cover";
         enemycar.style.transform="rotate(180deg)";
 
@@ -108,11 +109,46 @@ function EnemyCar(mainC){
 
        // this.drawCar();
     }
-    this.removeCar = function(){
-        this.enemyElement.style.display="none";
-        // mainC.removeChild(this.enemyContainer);
-    }
 }
+// function Road(mainC){
+//     this.width = mainC.offsetWidth;
+//     this.height= mainC.offsetHeight;
+//     this.roadElement = null;
+//     this.mainC=mainC;
+//     this.incX=10;
+    
+
+//     this.initRoad= function(){
+//       //  console.log("am i even here");
+//         var road = document.createElement('div');
+//       //  console.log("road",road);
+//         road.style.height = this.height+'px';
+//         road.style.width = this.width +'px';
+//         road.style.position="absolute";
+//         road.style.backgroundPositionY= this.incX+"px";
+//         road.style.background = "url(images/road.png)";
+//         road.style.backgroundSize = "cover";
+
+//        // road.classList.add('road');
+//         this.mainC.appendChild(road);        
+
+//         this.roadElement = road;
+//         // console.log(this.enemyElement);
+    
+//         // return this;
+
+//     }
+
+//     this.drawRoad = function(){
+//         this.roadElement.style.left = this.x+'px';
+//         this.roadElement.style.top = this.y+'px';
+//     }
+    
+//     this.updateRoad= function(x,y){
+//         this.x = x;
+//         this.y += this.incX;
+//     }
+// }
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
@@ -126,7 +162,13 @@ function Game(mainC){
     this.scoreBoard= null;
     this.singleTrackWid= this.mainContainer.offsetWidth/3;
     this.newXPosition=0;
+    this.newRoadPosition=0;
     this.initEnemyCount=0;
+    this.initRoad=0;
+    this.roadSpeed=20;
+    this.roadArr= [];
+    this.score=0;
+
 
     var myCar = new Container(this.mainContainer);
     var enemyCarsObj=null;
@@ -138,7 +180,10 @@ function Game(mainC){
     this.startGame  = function(){
         myCar.init();
         this.keyInput();
+        // this.scoreCount();
     }
+
+
     this.generateEnemyArr=function(){
         enemyCarsObj = new EnemyCar(this.mainContainer);
         enemyCarsObj.initEnemyCar();  
@@ -176,23 +221,18 @@ function Game(mainC){
            this.enemyCarArr[i].drawCar();
             // console.log(this.enemyCarArr[i]);
            
-        }
-
-
-    //    this.checkCollision();      
-         
-
+        } 
+        
     }
     
     this.checkCollision = function(){
         for(var i =0;i<this.enemyCarArr.length;i++){
-            console.log(myCar.x);
-            if(this.enemyCarArr[i].x == myCar.x && this.enemyCarArr[i].y + this.enemyCarArr.height>= myCar.y){
+            if(this.enemyCarArr[i].x == myCar.x && this.enemyCarArr[i].y + this.enemyCarArr[i].height== myCar.y){
                 console.log("collision");
                 var scoreBoard = document.createElement('div');
-                scoreBoard.style.width = 600+"px";
-                scoreBoard.style.height = 600+"px";
-                scoreBoard.style.background = "rgba(0,0,0,0.3)";
+                scoreBoard.style.width = this.mainContainer.offsetWidth+"px";
+                scoreBoard.style.height = this.mainContainer.offsetHeight+"px";
+                scoreBoard.style.background = "rgba(0,0,0,0.6)";
                 scoreBoard.style.position = "absolute";
                 scoreBoard.style.color="#fff";
                 scoreBoard.innerHTML += 'Game Over!! <br>';
@@ -204,18 +244,29 @@ function Game(mainC){
                 this.mainContainer.appendChild(scoreBoard);
                 this.scoreBoard = scoreBoard;
 
-                this.x= enemyCar.x;
-                this.y =enemyCar.y;
-                ClearInterval();
-            }   
+                this.x = this.enemyCarArr[i].x;
+                this.y =this.enemyCarArr[i].y;
+                new ClearInterval(); 
+            }
         }
     }
-    setInterval(function(){
-        // var xP=gameplay.randomXPosition();
-         //sgameplay.moveCar(xP);
-        // console.log("every 2sec");
-      //  that.randomXPosition();
-
+    this.scoreCount =function(){
+        var scoreboard = document.getElementById('player-score');
+        that.element = scoreboard;
+        // console.log(that.enemyCarArr);
+        for(var i =0;i<that.enemyCarArr.length;i++){
+            console.log(that.mainContainer.offsetHeight);
+            if(that.enemyCarArr[i].y > that.mainContainer.offsetHeight){
+                that.score=10*i;
+                console.log("score",that.score);
+                that.element.innerHTML = that.score;
+                console.log(that.score);
+            }
+        }
+    }
+    
+    this.setI= setInterval(function(){
+      
       if(that.initEnemyCount==40){
         that.generateEnemyArr();
         that.initEnemyCount=0;
@@ -224,18 +275,24 @@ function Game(mainC){
       if(that.enemyCarArr.length>0){
         that.moveCar();
         that.checkCollision();
+        that.scoreCount();
+      }
+      if(that.roadArr.length>0){
+          that.moveRoad(4);
       }
        
-     console.log("counter", that.initEnemyCount);
+    //  console.log("counter", that.initEnemyCount);
     //  that.keyInput();
-     that.initEnemyCount++;    
+     that.initEnemyCount++;   
+     that.mainContainer.style.backgroundPosition=0+"px "+that.initRoad+"px";
+     that.initRoad+=that.roadSpeed;
      
      },100);
 }
 
 
 function ClearInterval(){
-    clearInterval(movecar);
+    clearInterval(gameplay.setI);
     console.log("Interval Cleared");
 }
 
