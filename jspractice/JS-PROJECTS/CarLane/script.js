@@ -14,6 +14,7 @@ function Container(mainC){
     // mainC.style.background = "url(images/roadslow.gif) center";
     mainC.style.background = "url(images/road.png) center";
     mainC.style.backgroundSize = "cover";
+    mainC.style.overflow = "hidden";
     mainC.style.bottom = "0";
     
     this.init=function(){
@@ -24,6 +25,7 @@ function Container(mainC){
         car.style.position="absolute";
         car.style.background = "url(images/car.png)";
         car.style.backgroundSize = "cover";
+        car.style.overflow = "hidden";
 
         car.classList.add('car');
         mainC.appendChild(car);        
@@ -43,14 +45,16 @@ function Container(mainC){
     }
     this.updateCar = function(direction){
         this.current = mainC.offsetWidth/3;
+        console.log(this.current);
 
         this.x += direction*this.current;
 
-        if(this.x <= 0){
-            this.x = 0;
+        if(this.x <= this.trackSpace){
+            this.x = this.trackSpace;
         }
         if(this.x >= this.containerWid){
-            this.x= this.containerWid-100;
+            console.log(this.trackSpace);
+            this.x= this.containerWid-this.trackSpace-this.width;
         }
         console.log("Moving to",this.x);
 
@@ -61,9 +65,11 @@ function Container(mainC){
 function EnemyCar(mainC){
     this.width = 60;
     this.height= 130;
+    this.enemyElement = null;
 
     this.trackSpace = (mainC.offsetWidth/3 - this.width)/2;
-    this.enemyElement = null;
+    this.x = 0 + this.trackSpace;
+    this.y = 0;
     
 
     this.anotherCar= function(x,y){
@@ -80,12 +86,13 @@ function EnemyCar(mainC){
         mainC.appendChild(enemycar);        
 
         this.enemyElement = enemycar;
-        this.drawCar();
-        this.updateCar(x,y); 
-        return this;
+        // console.log(this.enemyElement);
+    
+        // return this;
     }
 
     this.drawCar = function(){
+        // console.log("drae");
         this.enemyElement.style.left = this.x+'px';
         this.enemyElement.style.top = this.y+'px';
     }
@@ -98,6 +105,7 @@ function EnemyCar(mainC){
     }
     this.removeCar = function(){
         this.enemyElement.style.display="none";
+        // mainC.removeChild(this.enemyContainer);
     }
 }
 
@@ -105,20 +113,25 @@ function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
   }
 function Game(mainC){
+    var that = this;
     this.mainContainer = mainC;
+    this.myCar;
     this.speed=1;
+    this.enemyCar;
     this.scoreBoard= null;
     this.singleTrackWid= this.mainContainer.offsetWidth/3;
-    myCar = new Container(this.mainContainer);
-    enemyCar = new EnemyCar(this.mainContainer);
+
+    var myCar = new Container(this.mainContainer);
+    var enemyCar = new EnemyCar(this.mainContainer);
+
     this.enemycars= [];
     this.act = myCar.width; 
     this.curr= (mainC.offsetWidth/3  - this.act)/2;
     
-    // console.log(this.curr);s
-
     this.startGame  = function(){
         myCar.init();
+        // enemyCar.anotherCar();
+        
         this.keyInput();
         this.randomCar();
     }
@@ -134,32 +147,40 @@ function Game(mainC){
     }
     
     this.randomCar = function(){
-        this.rand= getRandomArbitrary(0,2.9);
-        this.x = this.curr + Math.floor(this.rand) * this.singleTrackWid;
+        enemyCar.anotherCar();
+        that.rand= getRandomArbitrary(0,2.9);
+        that.xPosition = that.curr + Math.floor(that.rand) * that.singleTrackWid;
 
-        this.enemycars.push(enemyCar.anotherCar(this.x, 10));
+        that.enemycars.push(enemyCar);
+        console.log(that.enemycars);
 
-        this.enemycars.forEach(element => {
-            console.log(element.x,  element.y);
-            setTimeout(this.moveCar(element.x,  element.y),1000);
-            
-            
-        });
+        // console.log(that.enemycars.slice(that.enemycars.length-1));
+        // enemyCar.anotherCar(that.enemycars.slice(that.enemycars.length-1),10);
+        // console.log(enemyCar.anotherCar);this.moveCar(this.enemycars[0],0);
+        console.log(that.xPosition);
+        that.moveCar(that.xPosition);
     }
+    this.moveCar = function(x){
+        console.log(that.enemycars);
+        for(var i =0;i<that.enemycars.length;i++){
+            
+            that.speed+=10;
+            that.enemycars[i].x = x;
+            console.log(this.enemycars[i].y);
+            that.enemycars[i].y =that.enemycars[i].y+ that.speed  ;
+            console.log(that.speed);
+            that.enemycars[i].updateCar(that.enemycars[i].x,that.enemycars[i].y); 
+        
+        }
 
-    console.log(this.enemycars);
-    this.moveCar = function(x,y){
-        this.speed++;
-        this.x =  x;
-        this.y =y * this.speed;
-    
         if(this.y>=this.mainContainer.offsetHeight){
             
             enemyCar.removeCar();
             new ClearInterval();
         }
         this.checkCollision();      
-        enemyCar.updateCar(this.x,this.y);  
+         
+
     }
     
     this.checkCollision = function(){
@@ -183,19 +204,13 @@ function Game(mainC){
 
             this.x= enemyCar.x;
             this.y =enemyCar.y;
+            ClearInterval();
         }   
-        return this.x,this.y;
     }
 }
-var count = 0;
 var movecar = setInterval(function(){
-    // gameplay.moveCar(trackSize,10);
     gameplay.randomCar();
-    count++;
-    if(count>1){
-        ClearInterval();
-    }
-},2000);
+},4000);
 
 function ClearInterval(){
     clearInterval(movecar);
@@ -205,5 +220,6 @@ function ClearInterval(){
 var gameC = document.getElementById('gameContainer');
 var gameplay = new Game(gameC);
 var trackSize = gameC.offsetWidth/3;
+// console.log(trackSize);
 
 gameplay.startGame();
