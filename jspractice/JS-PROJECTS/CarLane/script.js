@@ -229,7 +229,7 @@ function Game(mainC){
     
     this.checkCollision = function(){
         for(var i =0;i<this.enemyCarArr.length;i++){
-            if(this.enemyCarArr[i].x == myCar.x && this.enemyCarArr[i].y + this.enemyCarArr[i].height== myCar.y){
+            if(this.enemyCarArr[i].x == myCar.x && this.enemyCarArr[i].y + this.enemyCarArr[i].height>= myCar.y){
                 console.log("collision");
                 var scoreBoard = document.createElement('div');
                 scoreBoard.style.width = this.mainContainer.offsetWidth+"px";
