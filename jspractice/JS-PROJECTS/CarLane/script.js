@@ -168,6 +168,8 @@ function Game(mainC){
     this.roadSpeed=20;
     this.roadArr= [];
     this.score=0;
+    this.highscore =  window.localStorage.getItem('HighScore');
+    document.getElementById('player-hscore').innerHTML= this.highscore;
 
 
     var myCar = new Container(this.mainContainer);
@@ -255,11 +257,14 @@ function Game(mainC){
         that.element = scoreboard;
         // console.log(that.enemyCarArr);
         for(var i =0;i<that.enemyCarArr.length;i++){
-            console.log(that.mainContainer.offsetHeight);
+            // console.log(that.mainContainer.offsetHeight);
             if(that.enemyCarArr[i].y > that.mainContainer.offsetHeight){
-                that.score=10*i;
-                console.log("score",that.score);
+                that.score=10*(i+1);
+                console.log("score",that.highscore);
                 that.element.innerHTML = that.score;
+                if(that.highscore<that.score){      
+                    window.localStorage.setItem('HighScore', that.score);
+                }
                 console.log(that.score);
             }
         }
@@ -278,7 +283,7 @@ function Game(mainC){
         that.scoreCount();
       }
       if(that.roadArr.length>0){
-          that.moveRoad(4);
+          that.moveRoad(10);
       }
        
     //  console.log("counter", that.initEnemyCount);
