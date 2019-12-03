@@ -71,7 +71,7 @@ function EnemyCar(mainC){
 
     this.trackSpace = (mainC.offsetWidth/3 - this.width)/2;
     this.x = 0 + this.trackSpace;
-    this.y = -50;
+    this.y = -30;
     this.mainC=mainC;
     this.multicars =["url(images/car.png)", "url(images/green.png)", "url(images/yellow.png)", "url(images/blue.png)"];
 
@@ -172,7 +172,7 @@ function Game(mainC){
     this.newXPosition=0;
     this.newRoadPosition=0;
     this.initEnemyCount=0;
-    this.initRoad=0;
+    this.initRoad=10;
     this.roadSpeed=20;
     this.roadArr= [];
     this.score=0;
@@ -197,6 +197,9 @@ function Game(mainC){
         this.keyInput();
         // this.scoreCount();
         myBullet.initBullet();
+        for(var k = 1;k<=20;k++){
+            this.bullets.push(myBullet);
+        }
     }
 
 
@@ -217,18 +220,24 @@ function Game(mainC){
                 myCar.updateCar(-1);
                 this.lane=this.lane -1;
                 var pos= myCar.x+25;
+                myBullet.updateBullet(pos);
                 if(startBullet==true){
-                myBullet.updateBullet(pos,10);
+                     myBullet.updateBullet(pos,10);
                 }
             }
             else if(event.keyCode == 39) {
                 myCar.updateCar(1);
                 var pos= myCar.x+25;
                 myBullet.updateBullet(pos);
+                if(startBullet==true){
+                    myBullet.updateBullet(pos,10);
+               }
                 
             }
             else if(event.keyCode == 32) {
                 startBullet = true;
+                myBullet.y =460;
+                myBullet.initBullet();
                 console.log(startBullet);
             }
         });
@@ -253,6 +262,7 @@ function Game(mainC){
         
     }
     this.moveBullet =function(){
+        
         this.bulletspeed = 10;
         // console.log(myCar.x);
         var mycarp = myCar.x + 25;
@@ -263,10 +273,10 @@ function Game(mainC){
             this.bulletspeed++;
         }
         else{
-            myBullet.y = 460;
+            myBullet.y=-100;
         }
     }
-    this.checkCollision = function(){
+    this.checkBulletCollision=function(){
         for(var i =0;i<this.enemyCarArr.length;i++){
             console.log(myBullet.y);
             // console.log(myCar.x+25);
@@ -275,17 +285,21 @@ function Game(mainC){
                 console.log("bullet collided at", myBullet.y, this.enemyCarArr[i].y);
                 this.enemyCarArr[i].enemyElement.style.display="none";
                 this.enemyCarArr.pop(this.enemyCarArr[i]);
-                this.startBullet== false;
-                myBullet.y = 460;
+                this.score= i*10;
+                document.getElementById('player-score').innerHTML= this.score;
+                document.getElementById('pla')
             }
-
+        }
+    }
+    this.checkCollision = function(){
+        for(var i =0;i<this.enemyCarArr.length;i++){
             if(this.enemyCarArr[i].x == myCar.x && this.enemyCarArr[i].y + this.enemyCarArr[i].height >= myCar.y || 
                 this.enemyCarArr[i].y== myCar.y && this.enemyCarArr[i].x == myCar.x){
                 console.log("collision");
                 var scoreBoard = document.createElement('div');
                 scoreBoard.style.width = this.mainContainer.offsetWidth+"px";
                 scoreBoard.style.height = this.mainContainer.offsetHeight+"px";
-                scoreBoard.style.background = "rgba(0,0,0,0.6)";
+                scoreBoard.style.background = "rgba(0,0,0,0.3)";
                 scoreBoard.style.position = "absolute";
                 scoreBoard.style.color="#fff";
                 scoreBoard.innerHTML += 'Game Over!! <br>';
@@ -299,9 +313,10 @@ function Game(mainC){
 
                 this.x = this.enemyCarArr[i].x;
                 this.y =this.enemyCarArr[i].y;
-                new ClearInterval(); 
+                ClearInterval(); 
             }
         }
+        console.log(this.startBullet);
     }
     this.scoreCount =function(){
         var scoreboard = document.getElementById('player-score');
@@ -330,6 +345,7 @@ function Game(mainC){
       if(that.enemyCarArr.length>0){
         that.moveCar();
         that.checkCollision();
+        that.checkBulletCollision();
         that.scoreCount();
       }
       if(that.roadArr.length>0){
@@ -338,7 +354,7 @@ function Game(mainC){
       if(startBullet == true){
 
           that.moveBullet();
-          startBullet= false;
+        //   startBullet= false;
       }
        
     //  console.log("counter", that.initEnemyCount);

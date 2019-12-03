@@ -260,7 +260,6 @@ function Game(mainC){
             // console.log(that.mainContainer.offsetHeight);
             if(that.enemyCarArr[i].y > that.mainContainer.offsetHeight){
                 that.score=10*(i+1);
-                console.log("score",that.highscore);
                 that.element.innerHTML = that.score;
                 if(that.highscore<that.score){      
                     window.localStorage.setItem('HighScore', that.score);
