@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main_container{
+            width:500px;
+            height: 600px;
+            border: 1px solid black;
+            margin:0 auto;
+            position: relative;
+        }
+        .next{
+            margin-top: 30px;
+        }
+        #gameContainer{
+            width:300px;
+            height:600px;
+            float: left;
+            position: absolute;
+        }
+        #gameScore{
+            float: right;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        #gameScore h2, .gameScore h3{
+            padding-right:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_container clearfix">
+        <div id="gameContainer"></div>
+        <div id="gameScore">
+            <h2 id="player-name">Player 1</h2>
+            <h3>Score : <span id="player-score">0</span></h3>
+            <h3>High Score : <span id="player-hscore"></span></h3>
+        </div>
+    </div>
+    <!-- <div class="main_container next clearfix">
+        <div id="gameContainer-next"></div>
+        <div id="gameScore">
+            <h2 id="player-name">Player 1</h2>
+            <h3>Score : <span id="player-score">0</span></h3>
+            <h3>High Score : <span id="player-hscore"></span></h3>
+        </div>
+    </div> -->
+    <script src="script.js"></script>
+</body>
+</html>
