@@ -19,7 +19,7 @@ function Bird(sprite,height,frames,ctx,fgh,deg,state,DIE){
     
     this.frame = 1;
     
-    this.gravity = 0.25;
+    this.gravity = 0.5;
     this.jump = 0;
     this.speed = 0;
     this.rotation = 0;

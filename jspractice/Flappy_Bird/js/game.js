@@ -121,14 +121,12 @@ function GameContainer(index,keyX){
         
         this.loop();
     }
-    function jumpBird() {
-        console.log("--------")
-        console.log(keyX);
-        console.log(event.keyCode);
-    
+    function jumpBird() {    
         if(event.keyCode == keyX) {
-            birdObj.jump = 3;
+            birdObj.jump = 7;
             birdObj.flap();
+            state.current = state.game;
+
         }
         
     }
@@ -157,7 +155,7 @@ function GameContainer(index,keyX){
             this.update();
             this.startGame();
             frames++;
-        }, 50);
+        }, 40);
     }
 }
 
