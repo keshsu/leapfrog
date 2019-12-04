@@ -44,7 +44,7 @@ function Obstacle(frames,ctx,bird,state){
                 y : this.maxYPos * ( Math.random() + 1)
             });
         }
-        // for(var i = 0; i < this.position.length; i++){
+        for(var i = 0; i < this.position.length; i++){
             var p = this.position[0];
             console.log(p);
             var bottomPipeYPos = p.y + this.h + this.gap;
@@ -52,12 +52,12 @@ function Obstacle(frames,ctx,bird,state){
             // COLLISION DETECTION
             // TOP PIPE
             if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h){
-                current = state.over;
+                state.current = state.over;
                 HIT.play();
             }
             // BOTTOM PIPE
             if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > bottomPipeYPos && bird.y - bird.radius < bottomPipeYPos + this.h){
-                current = state.over;
+                state.current = state.over;
                 HIT.play();
             }
             
@@ -72,7 +72,7 @@ function Obstacle(frames,ctx,bird,state){
                 score.best = Math.max(score.value, score.best);
                 localStorage.setItem("best", score.best);
             }
-        // }
+        }
     }
 
     this.reset = function(){

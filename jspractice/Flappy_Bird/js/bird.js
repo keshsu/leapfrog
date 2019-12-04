@@ -64,9 +64,9 @@ function Bird(height,frames,ctx,fgh,deg, state){
             this.speed += this.gravity;
             this.y += this.speed;
             if(this.y + this.h >= height - fgh){
-                this.y =150;
+                this.y =height-this.radius-fgh;
                 if(current == state.game){
-                    current = state.over;
+                    state.current = state.over;
                     DIE.play();
                 }
             }
