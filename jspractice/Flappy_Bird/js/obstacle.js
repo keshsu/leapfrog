@@ -1,4 +1,4 @@
-function Obstacle(frames,ctx,bird,state){
+function Obstacle(sprite,frames,ctx,bird,state,score,HIT,SCORE_S){
 
     this.position = [];
         
@@ -32,7 +32,7 @@ function Obstacle(frames,ctx,bird,state){
         }
     }
     
-    this.update=function(current){
+    this.update=function(current,maxwidth){
         // console.log(bird);
         // console.log(bird);
         if(current !== state.game) return;
@@ -40,7 +40,7 @@ function Obstacle(frames,ctx,bird,state){
         
         if(frames%100 == 0){
             this.position.push({
-                x : canvas.width,
+                x : maxwidth,
                 y : this.maxYPos * ( Math.random() + 1)
             });
         }

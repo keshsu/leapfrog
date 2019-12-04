@@ -1,5 +1,5 @@
 
-function Bird(height,frames,ctx,fgh,deg, state){
+function Bird(sprite,height,frames,ctx,fgh,deg,state,DIE){
 
     
     this.animation = [
@@ -40,7 +40,7 @@ function Bird(height,frames,ctx,fgh,deg, state){
     
     this.flap =function(){
         this.speed = - this.jump;
-        console.log(this.speed ); 
+        // console.log(this.speed ); 
         
     }
     this.update = function(current){

@@ -7,8 +7,26 @@
     <link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
     <title>Flappy Bird</title>
 </head>
+<style>
+    .maincontainer{
+        overflow: auto;
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+</style>
 <body>
-    <canvas id="gamecanvas"></canvas>
+    <div class="maincontainer">
+        <div class="left">
+            <canvas id="gamecanvas"></canvas>
+        </div>
+        <div class="right">
+            <canvas id="gamecanva2"></canvas>
+        </div>
+    </div>
     <script src="js/frame.js"></script>
     <script src="js/obstacle.js"></script>
     <script src="js/bird.js"></script>
