@@ -45,33 +45,34 @@ function Obstacle(sprite,frames,ctx,bird,state,score,HIT,SCORE_S){
             });
         }
         // for(var l = 0; l < this.position.length; l++){
-            var p = this.position[0];
-            // console.log(p);
-            var bottomPipeYPos = p.y + this.h + this.gap;
-            
-            // COLLISION DETECTION
-            // TOP PIPE
-            if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h){
-                state.current = state.over;
-                HIT.play();
-            }
-            // BOTTOM PIPE
-            if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > bottomPipeYPos && bird.y - bird.radius < bottomPipeYPos + this.h){
-                state.current = state.over;
-                HIT.play();
-            }
-            
-            // MOVE THE PIPES TO THE LEFT
-            p.x -= this.dx;
-            
-            // if the pipes go beyond canvas, we devare them from the array
-            if(p.x + this.w <= 0){
-                this.position.shift();
-                score.value += 1;
-                SCORE_S.play();
-                score.best = Math.max(score.value, score.best);
-                localStorage.setItem("best", score.best);
-            }
+        var p = this.position[0];
+        // console.log(p);
+        var bottomPipeYPos = p.y + this.h + this.gap;
+        
+        // COLLISION DETECTION
+        // TOP PIPE
+        if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h){
+            state.current = state.over;
+            HIT.play();
+        }
+        // BOTTOM PIPE
+        if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > bottomPipeYPos && bird.y - bird.radius < bottomPipeYPos + this.h){
+            state.current = state.over;
+            HIT.play();
+        }
+        
+        // MOVE THE PIPES TO THE LEFT
+        p.x -= this.dx;
+        
+        // if the pipes go beyond canvas, we devare them from the array
+        if(p.x + this.w <= 0){
+            this.position.shift();
+            score.value += 1;
+            SCORE_S.play();
+            score.best = Math.max(score.value, score.best);
+            localStorage.setItem("best", score.best);
+        }
+    // }
         
     }
 

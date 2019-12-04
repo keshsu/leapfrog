@@ -1,6 +1,6 @@
 
 
-function GameContainer(index,keyX){
+function GameContainer(index,keyX,innerTxt){
     var degree = Math.PI / 180;
     // LOAD SPRITE IMAGE
     var sprite = new Image();
@@ -58,6 +58,10 @@ function GameContainer(index,keyX){
             ctx.fillStyle = "#FFF";
             ctx.strokeStyle = "#000";
             
+            ctx.font = "25px Teko";
+            ctx.fillText(innerTxt, 75, 256);
+
+            
             if(state.current == state.game){
                 ctx.lineWidth = 2;
                 ctx.font = "40px Teko";
@@ -99,7 +103,8 @@ function GameContainer(index,keyX){
                 FLAP.play();
                 break;
                 case state.over:
-                    var rect = canvas.getBoundingClientRect();
+
+            var rect = canvas.getBoundingClientRect();
             var clickX = evt.clientX - rect.left;
             var clickY = evt.clientY - rect.top;
             
@@ -121,7 +126,10 @@ function GameContainer(index,keyX){
         
         this.loop();
     }
-    function jumpBird() {    
+    function jumpBird() {  
+        if(state.current== state.over){
+            return;
+        }  
         if(event.keyCode == keyX) {
             birdObj.jump = 7;
             birdObj.flap();
@@ -151,7 +159,7 @@ function GameContainer(index,keyX){
         count++;
     }
     this.loop = function(){
-        setInterval(() => {
+        this.intv=setInterval(() => {
             this.update();
             this.startGame();
             frames++;
@@ -159,5 +167,5 @@ function GameContainer(index,keyX){
     }
 }
 
-var game1 = new GameContainer(0,32).init();
-var game2 = new GameContainer(1,38).init();
+var game1 = new GameContainer(0,32,'Press SPACE to Start').init();
+var game2 = new GameContainer(1,38,'Press UP to Start').init();
