@@ -17,10 +17,10 @@ function Bird(height,frames,ctx,fgh,deg, state){
     
     this.radius = 12;
     
-    this.frame = 0;
+    this.frame = 1;
     
     this.gravity = 0.25;
-    this.jump = 4.6;
+    this.jump = 0;
     this.speed = 0;
     this.rotation = 0;
 
@@ -60,7 +60,7 @@ function Bird(height,frames,ctx,fgh,deg, state){
             this.rotation = 0 * this.DEGREE;
         }
         else{
-            console.log(this.y); 
+            // console.log(this.y); 
             this.speed += this.gravity;
             this.y += this.speed;
             if(this.y + this.h >= height - fgh){

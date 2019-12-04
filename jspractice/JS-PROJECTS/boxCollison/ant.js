@@ -1,7 +1,7 @@
 multiple = [];
 function Container(mainparent){
-    this.width = 20;
-    this.height = 20;
+    this.width = 30;
+    this.height = 30;
     this.x= 20;
     this.y = 20;
     this.directionX =1;
@@ -26,8 +26,8 @@ function Container(mainparent){
         box.style.background = "url(ant.gif)";
         box.style.backgroundSize = "cover";
         box.style.cursor = "pointer";
+        box.onclick=killant;
         box.classList.add('box');
-        box.setAttribute( "onClick", "killant()");
         this.mainContainer.appendChild(box);
         this.element = box;  
 
@@ -43,6 +43,7 @@ function Container(mainparent){
         this.findPositon(this.x,this.y);
         
     }
+  
 
     this.update= function(speed){
         this.x += speed* this.directionX;
@@ -56,14 +57,6 @@ function Container(mainparent){
         this.element.style.left = this.x+'px';
         this.element.style.top = this.y+'px';
     }
-    this.killant =function(){
-        console.log("kill");
-        console.log("element");
-        // for(var k = 0; k<this.;k++){
-    
-            // this.element.style.display = "none";
-        // }
-    }   
 
     this.findPositon = function(first, second){
         var single=[];
@@ -73,11 +66,10 @@ function Container(mainparent){
         
         multiple.push(single);
         
-
     }
     
     var checklen = multiple.length;
-    console.log(checklen);
+    // console.log(checklen);   
 
     this.checkCollision = function(boxes, current, index){
         this.boxes = boxes;
@@ -168,7 +160,19 @@ function Game(mainparent, totalboxes){
             boxes[i].checkCollision(boxes, boxes[i], i);
         }
     }
+    this.killant =function(){
+        
+        console.log("kill");
+        console.log("element");
+        // for(var k = 0; k<this.totalboxes;k++){
+        //     if(boxes[i].)
+        //     boxes[i].display =none;
+        //     this.element.style.display = "none";
+        // }
+    }
+
+
 }
 var mainparent = document.getElementById('game-container');
-var gamePlay = new Game(mainparent , 10);
+var gamePlay = new Game(mainparent , 20);
 gamePlay.startGame();

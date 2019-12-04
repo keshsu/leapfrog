@@ -60,7 +60,6 @@ canvas.addEventListener("click", function(evt){
             break;
         case state.game:
             if(birdObj.y - birdObj.radius <= 0) return;
-            birdObj.flap();
             FLAP.play();
             break;
         case state.over:
@@ -89,7 +88,7 @@ const score= {
         
         if(state.current == state.game){
             ctx.lineWidth = 2;
-            ctx.font = "35px Teko";
+            ctx.font = "40px Teko";
             ctx.fillText(this.value, canvas.width/2, 50);
             ctx.strokeText(this.value, canvas.width/2, 50);
             
@@ -121,23 +120,7 @@ function Game(){
         getreadyObj.draw(state.current,state);
         gameoverObj.draw(state.current,state);
         score.draw();
-
-
-        // document.addEventListener('keydown', function(event) {
-        //     if(event.keyCode == 32) {
-        //         console.log("key r");
-        //         birdObj.jump = -5;
-        //     }
-        // }); 
     }
-    // this.checkCollision = function(){
-    //     if(birdObj.y+birdObj.height >= MAX_HEIGHT || birdObj.y <=0){
-            
-    //         console.log("collision");
-    //         clearInterval(that.newInterval);
-            
-    //     }
-    // }
 
 }
 
@@ -145,10 +128,16 @@ function Game(){
 var newgame  = new Game();
 var count =0;
 function update(){
+            
+    document.addEventListener('keypress', function(event) {
+        if(event.keyCode == 32) {
+            birdObj.jump = 3;
+            birdObj.flap();
+        }
+    });  
+
     birdObj.update(state.current);
-    // if(count == 1){
     obstacleObj.update(state.current);
-    // }
     foreObj.update(state.current, state);
     count++;
 }
