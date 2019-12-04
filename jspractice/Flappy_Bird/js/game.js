@@ -58,9 +58,10 @@ function GameContainer(index,keyX,innerTxt){
             ctx.fillStyle = "#FFF";
             ctx.strokeStyle = "#000";
             
+            if(state.current==state.getReady){
             ctx.font = "25px Teko";
             ctx.fillText(innerTxt, 75, 256);
-
+            }
             
             if(state.current == state.game){
                 ctx.lineWidth = 2;
