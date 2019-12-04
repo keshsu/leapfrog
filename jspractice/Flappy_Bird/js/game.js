@@ -47,10 +47,10 @@ const startBtn = {
 }
 var backObj = new Back(ctx,sprite,MAX_HEIGHT);
 var foreObj = new Fore(ctx,sprite,MAX_HEIGHT);
-var birdObj = new Bird(frames,MAX_HEIGHT,ctx, foreObj.h,degree);
-var obstacleObj = new Obstacle(frames,ctx,birdObj);
 var getreadyObj = new getReady(sprite,MAX_WIDTH,ctx);
 var gameoverObj = new gameOver(sprite,MAX_WIDTH,ctx);
+var birdObj = new Bird(MAX_HEIGHT,frames,ctx, foreObj.h,degree,state);
+var obstacleObj = new Obstacle(frames,ctx,birdObj,state);
     
 canvas.addEventListener("click", function(evt){
     switch(state.current){
@@ -110,13 +110,6 @@ const score= {
 }
 function Game(){
     var that = this;
-    // var currentState = state.current;
-    // var getreadyState = state.getReady;
-    // var gameState = state.game;
-    // var overState = state.over;
-
-
-
     this.startGame = function(){
         ctx.fillStyle = "#70c5ce";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -130,42 +123,40 @@ function Game(){
         score.draw();
 
 
-        document.addEventListener('keydown', function(event) {
-            if(event.keyCode == 32) {
-                console.log("key r");
-                birdObj.jump = -5;
-            }
-        }); 
+        // document.addEventListener('keydown', function(event) {
+        //     if(event.keyCode == 32) {
+        //         console.log("key r");
+        //         birdObj.jump = -5;
+        //     }
+        // }); 
     }
-    this.checkCollision = function(){
-        if(birdObj.y+birdObj.height >= MAX_HEIGHT || birdObj.y <=0){
+    // this.checkCollision = function(){
+    //     if(birdObj.y+birdObj.height >= MAX_HEIGHT || birdObj.y <=0){
             
-            console.log("collision");
-            clearInterval(that.newInterval);
+    //         console.log("collision");
+    //         clearInterval(that.newInterval);
             
-        }
-    }
-    // this.newInterval = setInterval(() => { 
-    //     ctx.clearRect(0,0,canvas.width,canvas.height); 
-    //     birdObj.update();
-    //     obstacleObj.draw();
-    //     this.checkCollision();
-    // },2000);
+    //     }
+    // }
 
 }
 
 // LOOP
 var newgame  = new Game();
+var count =0;
 function update(){
-    birdObj.update(state.current,state);
+    birdObj.update(state.current);
+    // if(count == 1){
+    obstacleObj.update(state.current);
+    // }
     foreObj.update(state.current, state);
-    // obstacleObj.update(state.current,state);
+    count++;
 }
 function loop(){
     setInterval(() => {
         update();
         newgame.startGame();
         frames++;
-    }, 100);
+    }, 50);
 }
 loop();

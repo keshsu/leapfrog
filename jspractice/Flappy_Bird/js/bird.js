@@ -1,6 +1,14 @@
 
-function Bird(height,frames,ctx,fgh,deg){
+function Bird(height,frames,ctx,fgh,deg, state){
 
+    
+    this.animation = [
+        {bX: 276, bY : 112},
+        {bX: 276, bY : 139},
+        {bX: 276, bY : 164},
+        {bX: 276, bY : 139}
+    ];
+    // console.log(ctx);
     this.x = 50;
     this.y = 150;
     this.w = 34;
@@ -9,20 +17,14 @@ function Bird(height,frames,ctx,fgh,deg){
     
     this.radius = 12;
     
-    this.frame = 1;
+    this.frame = 0;
     
     this.gravity = 0.25;
     this.jump = 4.6;
     this.speed = 0;
     this.rotation = 0;
 
-    this.animation = [
-        {bX: 276, bY : 112},
-        {bX: 276, bY : 139},
-        {bX: 276, bY : 164},
-        {bX: 276, bY : 139}
-    ];
-    // console.log(ctx);
+
     this.draw=function(){
         var bird = this.animation[this.frame];
         
@@ -37,11 +39,12 @@ function Bird(height,frames,ctx,fgh,deg){
     }
     
     this.flap =function(){
-        this.speed = -this.jump;
+        this.speed = - this.jump;
         console.log(this.speed ); 
         
     }
-    this.update = function(current, state){
+    this.update = function(current){
+        // console.log(current, state);
         // IF THE GAME STATE IS GET READY STATE, THE BIRD MUST FLAP SLOWLY
         this.period = current == state.getReady ? 10 : 5;
         
@@ -57,11 +60,11 @@ function Bird(height,frames,ctx,fgh,deg){
             this.rotation = 0 * this.DEGREE;
         }
         else{
+            console.log(this.y); 
             this.speed += this.gravity;
-            // console.log(this.speed); 
             this.y += this.speed;
-            if(this.y + this.h/2 >= height - fgh){
-                this.y = height - fgh - this.h/2;
+            if(this.y + this.h >= height - fgh){
+                this.y =150;
                 if(current == state.game){
                     current = state.over;
                     DIE.play();
@@ -70,10 +73,10 @@ function Bird(height,frames,ctx,fgh,deg){
             
             // IF THE SPEED IS GREATER THAN THE JUMP MEANS THE BIRD IS FALLING DOWN
             if(this.speed >= this.jump){
-                this.rotation = 90 * this.DEGREE;
+                this.rotation = 50 * this.DEGREE;
                 this.frame = 1;
             }else{
-                this.rotation = -25 * this.DEGREE;
+                this.rotation = -20 * this.DEGREE;
             }
         }
         

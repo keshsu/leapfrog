@@ -1,4 +1,4 @@
-function Obstacle(frames,ctx,bird){
+function Obstacle(frames,ctx,bird,state){
 
     this.position = [];
         
@@ -16,7 +16,7 @@ function Obstacle(frames,ctx,bird){
     this.gap = 85,
     this.maxYPos = -150,
     this.dx = 2,
-
+    
     this.draw = function(){
         for(var i  = 0; i < this.position.length; i++){
             var p = this.position[i];
@@ -32,9 +32,10 @@ function Obstacle(frames,ctx,bird){
         }
     }
     
-    this.update=function(current, state){
+    this.update=function(current){
+        console.log(bird);
         // console.log(bird);
-        if(state.current !== state.game) return;
+        if(current !== state.game) return;
 
         
         if(frames%100 == 0){
@@ -43,9 +44,9 @@ function Obstacle(frames,ctx,bird){
                 y : this.maxYPos * ( Math.random() + 1)
             });
         }
-        for(var i = 0; i < this.position.length; i++){
-            var p = this.position[i];
-            // console.log(p);
+        // for(var i = 0; i < this.position.length; i++){
+            var p = this.position[0];
+            console.log(p);
             var bottomPipeYPos = p.y + this.h + this.gap;
             
             // COLLISION DETECTION
@@ -71,7 +72,7 @@ function Obstacle(frames,ctx,bird){
                 score.best = Math.max(score.value, score.best);
                 localStorage.setItem("best", score.best);
             }
-        }
+        // }
     }
 
     this.reset = function(){
