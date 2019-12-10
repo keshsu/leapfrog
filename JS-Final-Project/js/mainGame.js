@@ -5,14 +5,43 @@ function Game(){
     canvas.height = 400;
     canvas.style.border = "1px solid black";
     var ctx = canvas.getContext("2d");
+    var heart = document.getElementById("heart");
+    var ammo = document.getElementById("ammo");
+    var coin = document.getElementById("coin");
 
     var back = new Back(canvas,ctx);
     var fore = new Fore(canvas,ctx);
     var myplayer = new Player(canvas,ctx);
     var enplayer = new enemyPlayer(canvas,ctx);
-    var nav = new Navingation(canvas,ctx);
+    var nav = new Navingation(canvas,ctx,heart,ammo,coin);
 
+    this.up= false;
+    this.left= false;
+    this.right= false;
+    
+    this.keyListener=function(event) {
+        // console.log("event", event);
+        var keyPrs = (event.type == "keydown") ? true : false;
 
+        switch (event.keyCode) {
+
+            case 37: // left key
+                that.left = keyPrs;
+                break;
+            case 38: // up key
+                that.up = keyPrs;
+                break;
+            case 32: // space key
+                that.up = keyPrs;
+                break;
+            case 39: // right key
+                that.right = keyPrs;
+                break;
+
+        }
+        // console.log(this.left, this.up, this.right);
+    }
+    
     this.init= function(){
         this.update();
         // this.checkCollision();
@@ -33,21 +62,29 @@ function Game(){
     this.update = function(){
         ctx.clearRect(0,60,canvas.width,canvas.height-160);
         fore.update();
-        myplayer.update();
+        // console.log(that.left,that.right,that.up);
+        myplayer.update(that.left,that.right,that.up);
         enplayer.update();
         this.checkCollision();
-        
-                
+
     }
     this.checkCollision = function(){
-        // console.log(myplayer.x);
-        // console.log(enplayer.x);
+        var enplayerx = enplayer.x.toFixed(4);
+        var myplayerx = myplayer.x.toFixed(4);
+        // console.log(enplayerx);
+
+        console.log("x =",Math.floor(enplayer.x));
+        if(myplayerx+myplayer.width>=enplayerx){
+            console.log("collision bhayo");
+        }
     }
-    
 }
 var gameback = new Game();
 gameback.init();
+
+window.addEventListener("keydown", gameback.keyListener);
+window.addEventListener("keyup", gameback.keyListener);
+
 setInterval(function(){
     gameback.update();
-},1000/60)
-// window.requestAnimationFrame(gameback.update);
+},1000/60);

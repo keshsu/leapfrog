@@ -1,11 +1,11 @@
 function enemyPlayer(canvas, ctx) {
 
     // var this =this;
-    this.height = 64;
-    this.width = 64;
+    this.height = 50;
+    this.width = 50;
     this.x = canvas.width;
     this.x_velocity = 0;
-    this.y = canvas.height - 164;
+    this.y = canvas.height - 150;
     this.speed = 0.1;
 
     

@@ -9,10 +9,6 @@ function Player(canvas, ctx) {
     this.y= canvas.height - 150;
     this.y_velocity= 0;
 
-    this.up= false;
-    this.left= false;
-    this.right= false;
-
     this.draw = function(){
         
         ctx.fillStyle = "#ff0000";
@@ -21,39 +17,16 @@ function Player(canvas, ctx) {
         ctx.fill();
     }
    
-    this.controller={
 
-        keyListener:function(event) {
-        
-            var keyPrs = (event.type == "keydown") ? true : false;
-
-            switch (event.keyCode) {
-
-                case 37: // left key
-                    this.left = keyPrs;
-                    break;
-                case 38: // up key
-                    this.up = keyPrs;
-                    break;
-                case 32: // space key
-                    this.up = keyPrs;
-                    break;
-                case 39: // right key
-                    this.right = keyPrs;
-                    break;
-
-            }
-        }
-    }
-    this.update = function() {
-
-        if (this.left) {
+    this.update = function(left,right,up) {
+        // console.log(left, right, up);
+        if (left) {
             console.log('left');
             this.x_velocity -= 0.5;
 
         }
 
-        if (this.up && this.jumping == false) {
+        if (up && this.jumping == false) {
             console.log('up');
 
             this.y_velocity -= 35;
@@ -61,7 +34,7 @@ function Player(canvas, ctx) {
 
         }
 
-        if (this.right) {
+        if (right) {
             console.log('right');
 
             this.x_velocity += 0.5;
@@ -92,11 +65,5 @@ function Player(canvas, ctx) {
         
         
         this.draw();
-        // window.requestAnimationFrame(that.update);
-
     }
-
-    window.addEventListener("keydown", this.controller.keyListener)
-    window.addEventListener("keyup", this.controller.keyListener);
-    // window.requestAnimationFrame(that.update);
 }

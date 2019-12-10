@@ -35,7 +35,7 @@ function Fore(cv,ctx){
     }
 }
 
-function Navingation(canvas,ctx){
+function Navingation(canvas,ctx,heart,ammo,coin){
     // var that = this;
     this.x=10;
     this.y=20;
@@ -45,21 +45,29 @@ function Navingation(canvas,ctx){
 
     this.drawHealth = function(){
         ctx.beginPath();
-        ctx.rect(this.x-5, this.y-5, 30, 30);
-        // ctx.fillStyle = "#fff"; 
+        ctx.drawImage(heart, this.x-5, this.y-5,30,30);
         
-        // ctx.drawImage("./images/heart.png", this.x-5, this.y=5)
-        ctx.rect(this.x+25, this.y, this.width, this.height);
-        ctx.fillStyle = "#aff";
+        ctx.rect(this.x+25, this.y+2, this.width, this.height-7);
+        ctx.fillStyle = "#bcac73";
         ctx.fill();
-        ctx.stroke();
+        ctx.rect(this.x+35, this.y-3, this.width-15, this.height-5);
+        // ctx.stroke();
     }
     this.drawAmmo = function(){
         ctx.beginPath();
-        ctx.rect(this.x+this.width+60-5, this.y-5, 30, 30);
+        ctx.drawImage(ammo, this.x+this.width+40, this.y-5, 30, 30);
         
-        ctx.rect(this.x+this.width+60, this.y, this.width+30, this.height);
-        ctx.fillStyle = "#fff"; 
+        ctx.rect(this.x+this.width+70, this.y, this.width, this.height-6);
+        ctx.fillStyle = "#b5a56d";
+        ctx.fill();
+        // ctx.stroke();
+    }
+    this.drawCoin = function(){
+        ctx.beginPath();
+        ctx.drawImage(coin, canvas.width-this.width-50, this.y-8, 32, 35);
+        
+        ctx.rect(canvas.width-this.width-20, this.y,this.width,this.height);
+        ctx.fillStyle= "#b8a870";
         ctx.fill();
         // ctx.stroke();
     }
@@ -68,13 +76,6 @@ function Navingation(canvas,ctx){
         ctx.beginPath();
         ctx.arc(canvas.width/2-this.radius+20, this.y+10, this.radius,0,2*Math.PI);
         ctx.fill();
-    }
-    this.drawCoin = function(){
-        ctx.fillStyle= "#fff";
-        ctx.beginPath();
-        ctx.rect(canvas.width-this.width-20, this.y,this.width,this.height);
-        ctx.fill();
-        ctx.stroke();
     }
 }
 
