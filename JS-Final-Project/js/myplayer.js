@@ -4,9 +4,9 @@ function Player(canvas, ctx) {
     this.height= 50;
     this.jumping= true;
     this.width= 50;
-    this.x= 10;
+    this.x= canvas.width/2-this.width;
     this.x_velocity= 0;
-    this.y= canvas.height - 150;
+    this.y= canvas.height - 142;
     this.y_velocity= 0;
 
     this.draw = function(){
