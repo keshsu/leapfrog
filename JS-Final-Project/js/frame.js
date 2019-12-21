@@ -1,18 +1,18 @@
 function Back(cv, ctx){
     this.x= 0;
-    this.height= cv.height-100;
+    this.height= cv.height-140;
     this.y =0;
     this.width = cv.width;
 
     this.draw = function(){
         // console.log("drawing");
-        ctx.fillStyle = "#000";
+        ctx.fillStyle = "#fff";
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
 function Fore(cv,ctx,fore){
     this.x= 0;
-    this.height= 300;
+    this.height= 140;
     this.y = cv.height-this.height;
     this.width = cv.width;
     this.fores = [fore, fore];
@@ -22,8 +22,8 @@ function Fore(cv,ctx,fore){
         ctx.beginPath();
         // console.log(this.fores[0].width);
         for(var i = 0; i< this.fores.length; i++){
-            ctx.drawImage(this.fores[0], this.x ,cv.height-141);
-            ctx.drawImage(this.fores[i],this.x+this.fores[0].width,cv.height-141);
+            ctx.drawImage(this.fores[0], this.x ,cv.height-this.height);
+            ctx.drawImage(this.fores[i],this.x+this.fores[0].width,cv.height-this.height);
         }
         ctx.fill();
     }
@@ -47,6 +47,7 @@ function Navingation(canvas,ctx,heart,ammo,coin,pause){
     this.height= 20;
     this.radius = 20;
     this.healhval = this.width-5;
+    this.ammoVal = this.width-6;
     this.circX = canvas.width/2-this.radius+20;
     this.playkY = this.y+10;
     
@@ -74,7 +75,8 @@ function Navingation(canvas,ctx,heart,ammo,coin,pause){
             this.drawHealth();
         }
         else{
-            console.log("sakiyo",this.healhval);
+            this.healhval = 0;
+            console.log("health sakiyo",this.healhval);
         }
     }
 
@@ -91,11 +93,23 @@ function Navingation(canvas,ctx,heart,ammo,coin,pause){
         ctx.stroke();
                 
         ctx.beginPath();
-        ctx.rect(this.x+this.width+73, this.y+3.5, this.width-6, this.height-12);
+        ctx.rect(this.x+this.width+73, this.y+3.5, this.ammoVal, this.height-12);
         ctx.fillStyle = "#efe22c";
         ctx.fill();
         // ctx.stroke();
 
+    }
+    this.updateAmmo = function(ammofire){
+        // this.ammoVal -= ammofire;
+        console.log(this.ammofire)
+        if(this.ammoVal>=0){
+            ctx.clearRect(this.x+26,this.y+4,this.width-4, this.height-11);
+            this.drawHealth();
+        }
+        else{
+            this.ammoVal = 0;
+            console.log("ammo sakiyo",this.ammoVal);
+        }
     }
     
     this.drawCoin = function(){

@@ -1,0 +1,82 @@
+
+    // this.x = Math.random()*(canvas.width-0)+0;
+
+    this.x = canvas.width;
+
+    this.y = this.enemyYpos[Math.floor(Math.random()*this.enemyYpos.length)];
+
+    console.log(this.y);
+
+    
+    this.newEnemy = this.enemyArr[Object.keys(this.enemyArr)[Math.floor(Math.random()*Object.keys(this.enemyArr).length)]];
+          xconsole.log(this.newEnemy);
+    // this.dir = Math.random() * (1.99 - 0)+0;
+    // this.dir = Math.floor(this.dir);
+    
+    this.randomEmeny = function(){
+        
+    }
+     if(this.newEnemy.width == 30 && this.newEnemy.height==30 && this.y == -10){
+            this.x = Math.random()*(canvas.width-0)+0;
+
+            // this.y_velocity *=0.9;
+            // this.y +=this.y_velocity;
+            // this.x_velocity += this.speed;
+            // this.x -= this.x_velocity;
+            // this.x_velocity *= 0.9;
+            
+    
+            if (this.x < -64) {
+    
+                this.x = -64;
+    
+            } else if (this.x > canvas.width) {
+    
+                this.x = canvas.width - 42;
+    
+            }
+            this.width = this.newEnemy.width;
+            this.height = this.newEnemy.height;
+        }
+        else if(this.newEnemy.width == 50 && this.newEnemy.height==50 && this.y == canvas.height-150){
+            this.x_velocity += this.speed;
+            this.x -= this.x_velocity;
+            this.x_velocity *= 0.9;
+            
+    
+            if (this.x < -64) {
+    
+                this.x = -64;
+    
+            } else if (this.x > canvas.width) {
+    
+                this.x = canvas.width - 42;
+    
+            }
+            this.width = this.newEnemy.width;
+            this.height = this.newEnemy.height;
+        }
+        else if(this.newEnemy.width == 60 && this.newEnemy.height == 60){
+            // this.x = Math.random()*(canvas.width-0)+0;
+
+
+        }
+
+
+        //sprite image manipulation
+          let cx = document.querySelector("canvas").getContext("2d");
+  let img = document.createElement("img");
+  img.src = "img/player.png";
+  let spriteW = 24, spriteH = 30;
+  img.addEventListener("load", () => {
+    let cycle = 0;
+    setInterval(() => {
+      cx.clearRect(0, 0, spriteW, spriteH);
+      cx.drawImage(img,
+                   // source rectangle
+                   cycle * spriteW, 0, spriteW, spriteH,
+                   // destination rectangle
+                   0,               0, spriteW, spriteH);
+      cycle = (cycle + 1) % 8;
+    }, 120);
+  });

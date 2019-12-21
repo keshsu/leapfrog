@@ -4,19 +4,23 @@ function Game(){
     canvas.width= 1000;
     canvas.height = 630;
     canvas.style.border = "1px solid black";
+
     var ctx = canvas.getContext("2d");
     var heart = document.getElementById("heart");
     var ammo = document.getElementById("ammo");
     var coin = document.getElementById("coin");
     var fore = document.getElementById("fore");
     var pause = document.getElementById("playk");
+    var bullet = document.getElementById("bullet");
+    var pointedArrows = document.getElementById("pointedArrows");
+    var mousePoint = document.getElementById("mousePoint");
+    var playerimg = document.getElementById("player");
 
     var back = new Back(canvas,ctx);
     var fore = new Fore(canvas,ctx,fore);
-    var enplayer = new enemyPlayer(canvas,ctx);
-    var myplayer = new Player(canvas,ctx);
+    var enplayer = new enemyPlayer(canvas,ctx,canvas.width,canvas.height-190,50,50,pointedArrows);
+    var myplayer = new Player(canvas,ctx,bullet,playerimg);
     var nav = new Navingation(canvas,ctx,heart,ammo,coin,pause);
-
     this.up= false;
     this.left= false;
     this.right= false;
@@ -42,7 +46,6 @@ function Game(){
                 break;
 
         }
-        // console.log(this.left, this.up, this.right);
     }
     
     this.draw = function(){
@@ -53,8 +56,8 @@ function Game(){
         nav.drawAmmo(); //calling the ammo 
         nav.playPause(); //calling the playPause 
         nav.drawCoin();// calling the coin
-        myplayer.draw(); //calling the player
         enplayer.draw(); // calling the enemy
+        myplayer.draw(); //calling the player
     }
     
     this.update = function(){
@@ -76,16 +79,29 @@ function Game(){
             nav.updateHealth(this.collidedHealth);
          }
     }
+
     this.findMouse = function(e){
+
         ctx.beginPath();
-        ctx.moveTo(myplayer.x+myplayer.width/2,myplayer.y+myplayer.height/2);
-        ctx.lineTo(e.clientX,e.clientY);
-        console.log("mouse location:", e.clientX, e.clientY);
+        // ctx.moveTo(myplayer.x+myplayer.width/2,myplayer.y+myplayer.height/2);
+        // ctx.lineTo(e.clientX,e.clientY);
+
+
+        if(e.clientX <myplayer.x+myplayer.width/2){
+            myplayer.changeDirection(1);
+        }
+        else{
+            myplayer.changeDirection(-1);
+        }
         ctx.strokeStyle = "red";
-        // ctx.rotate(20 * Math.PI / 180);
+        ctx.drawImage(mousePoint, e.clientX-15, e.clientY-15, 30,30);
         ctx.lineWidth = 1;
         ctx.fill();
         ctx.stroke();
+    }
+
+    this.fireBullet = function(){
+        myplayer.fire();
     }
 }
 var gameback = new Game();
@@ -93,7 +109,8 @@ gameback.draw();
 
 window.addEventListener("keydown", gameback.keyListener);
 window.addEventListener("keyup", gameback.keyListener);
-// window.addEventListener("mousemove", gameback.findMouse);
+window.addEventListener("mousedown", gameback.fireBullet);
+window.addEventListener("mousemove", gameback.findMouse);
 setInterval(function(){
     gameback.update();
 },1000/60);
