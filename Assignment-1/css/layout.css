@@ -12,7 +12,7 @@
     margin: 0 auto;
     width:1170px;
 }
-.header-top-container{
+.header-container{
     background: url('../image/rulers.png') repeat-x left bottom;
     background-color: #77C8C2;
     padding-bottom:80px;
@@ -130,28 +130,27 @@
 .client-container{    
     position: relative;    
     float: left;
-    background: url('../image/b.png') no-repeat center;
+    border-radius: 10px;
     background-size:  cover;  
     background-color: #f8f8f8;
     padding-right: 280px;
-    padding-top: 300px;
+    padding-top: 340px;
     top: 40px;
     margin: 0 5px;
 }
 .client-container:hover{
     background-color:#90d1cb;
 }
-.button-client:hover{
-    background-image: url('../image/hoverframe.png');
+.client-container:hover .button-client{
     background-color: lightcoral;
 }
-.image-container{
+/* .image-container{
     background:url('../image/image-icon.png');
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 .button-client{
-    background: url('../image/border-user.png');
+    border-radius: 10px;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;

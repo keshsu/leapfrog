@@ -2,7 +2,7 @@
     color: #fff;
 }
 .nav-bar-menu-items ul li:hover{
-    background: url(../image/li-hover.png) no-repeat center;
+    border-radius: 5px;
     background-size: cover;
     background-color:#79a09d;
 }
@@ -33,7 +33,7 @@
     color: darkgray; 
 }
 .our-left-button, .our-right-button{
-    background: url("../image/buttonborder.png");
+    border-radius: 5px;
     background-repeat: no-repeat;
     background-size: contain;
     background-color:darkgray;
