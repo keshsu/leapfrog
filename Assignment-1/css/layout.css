@@ -12,6 +12,9 @@
     margin: 0 auto;
     width:1170px;
 }
+.container{
+    min-width: 1170px;
+}
 .header-container{
     background: url('../image/rulers.png') repeat-x left bottom;
     background-color: #77C8C2;

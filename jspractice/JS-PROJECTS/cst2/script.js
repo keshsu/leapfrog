@@ -25,15 +25,18 @@
 // },20);
 
 
-var mainc = document.getElementById('manic');
-var childc  = document.getElementById('circle');
+var mainc = document.getElementById('manic'); //Main Box
+var childc  = document.getElementById('circle'); //Child Circle
 
-var act_width = mainc.offsetWidth;
-var act_height = mainc.offsetHeight;
+var act_width = mainc.offsetWidth; //main ko width
+var act_height = mainc.offsetHeight; //mainbox height
 
 var top_place = 0;
 var left_place = 0.5* act_width;
 console.log(top_place, left_place);
+
+console.log(act_height);
+console.log(act_width);
 
 
 var child_top= childc.offsetTop;
@@ -53,4 +56,4 @@ setInterval(function(){
         inc+=5;
     }
     draw(child_top);
-},20);
+},1000/60);

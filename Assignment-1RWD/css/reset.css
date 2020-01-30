@@ -12,3 +12,11 @@ a{
 li{
     list-style: none;
 }
+.main-container{
+    width:100%;
+    min-width:82.5em;
+}
+.page{
+    width: 75em;
+    margin: 0 auto;
+}

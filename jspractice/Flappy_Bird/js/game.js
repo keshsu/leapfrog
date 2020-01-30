@@ -1,5 +1,3 @@
-
-
 function GameContainer(index,keyX,innerTxt){
     var degree = Math.PI / 180;
     // LOAD SPRITE IMAGE
@@ -141,16 +139,16 @@ function GameContainer(index,keyX,innerTxt){
     }
         
     this.startGame = function(){
-            ctx.fillStyle = "#70c5ce";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            backObj.draw();
-            obstacleObj.draw();
-            foreObj.draw();
-            birdObj.draw();
-            getreadyObj.draw(state.current,state);
-            gameoverObj.draw(state.current,state);
-            score.draw();
+        ctx.fillStyle = "#70c5ce";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        backObj.draw();
+        obstacleObj.draw();
+        foreObj.draw();
+        birdObj.draw();
+        getreadyObj.draw(state.current,state);
+        gameoverObj.draw(state.current,state);
+        score.draw();
     }
     this.update = function(){
 

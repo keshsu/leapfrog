@@ -33,11 +33,39 @@
     color: darkgray; 
 }
 .our-left-button, .our-right-button{
-    background: url("../image/buttonborder.png");
-    background-repeat: no-repeat;
-    background-size: contain;
+    border-radius: 5px;
     background-color:darkgray;
 }
 .our-left-button:hover, .our-right-button:hover{
     background-color: #E3534B;
+}
+
+@media only screen and (max-width:360px) {
+    body {font-size:0.975rem;
+    } 
+    .main-container{
+        width:100%;
+        min-width:22.5em;
+    }
+    .main-container{
+        width:100%;
+        min-width:22.5em;
+    }
+    .page{
+        width: 21.25em;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width:768px){
+    body {
+        font-size:0.7rem;
+    }
+   .page{
+        width: 47.25em;
+        margin: 0 auto;
+    }
+    .main-container{
+        width:100%;
+        min-width:48em;
+    }
 }
